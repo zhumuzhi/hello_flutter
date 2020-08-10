@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/buildingLayoutCase.dart';
 
 // 商品数量属性；购物车信息增加商品列表信息（包括商品名称，数量及单价）输出，实现小票的基本功能。
 
@@ -36,7 +37,7 @@ class Entry {
 /// 首页ListView
 class _MyHomePageState extends State<MyHomePage> {
 
-  final List<String> entries = <String>['AA','BB','CC'];
+  final List<String> entries = <String>['布局案例','案例B','案例C'];
   final List<int>colorCodes = <int>[100,200,300];
 
   @override
@@ -70,12 +71,25 @@ class ListItem extends StatelessWidget {
     return new Container(
       height: 50,
       color: Colors.amber[colorValue],
-      child: Center(child: Text(title)
+      child: new ListTile(
+        title: new Text('$title'),
+        onTap: () {
+          if ('$title'.toString() == '布局案例') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(builder: (context) =>  new titleSection()),
+            );
+          }
+          if ('$title'.toString() == '布局B') {
+            print('跳转至$title');
+
+          }
+          if ('$title'.toString() == '布局C') {
+            print('跳转至$title');
+          }
+        },
       ),
     );
   }
 }
-
-
-
 

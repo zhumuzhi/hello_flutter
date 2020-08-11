@@ -77,7 +77,7 @@ class ListItem extends StatelessWidget {
           if ('$title'.toString() == '布局案例') {
             Navigator.push(
                 context,
-                new MaterialPageRoute(builder: (context) =>  new titleSection()),
+                new MaterialPageRoute(builder: (context) =>  new buildingLayoutCase()),
             );
           }
           if ('$title'.toString() == '布局B') {

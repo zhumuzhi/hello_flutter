@@ -8,22 +8,27 @@ import 'package:flutter/material.dart';
 class buildingLayoutCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    body: new ListView(
-      children: <Widget>[
-        new Image.asset(
-          'image/lake.jpg',
-          width: 600.0,
-          height: 240.0,
-          fit: BoxFit.cover,
-        ),
-
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('布局案例'),
+      ),
+      backgroundColor: Colors.white,
+      body: new ListView(
+        children: <Widget>[
+          new Image.asset(
+            'images/lake.jpg',
+            width: 600.0,
+            height: 240.0,
+            fit: BoxFit.cover,
+          ),
+          titleSection(),
+//          buttonSection(),
+//          textSection(),
+        ],
+      ),
     );
   }
-
 }
-
-
 
 /// 信息Section
 

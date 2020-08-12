@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/buildingLayoutCase.dart';
 import 'package:hello_flutter/pavlovaLayoutCase.dart';
-import 'package:hello_flutter/containerCase.dart';
+import 'package:hello_flutter/containerLayoutCase.dart';
 
 // 商品数量属性；购物车信息增加商品列表信息（包括商品名称，数量及单价）输出，实现小票的基本功能。
 

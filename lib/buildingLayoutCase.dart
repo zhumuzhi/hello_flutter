@@ -23,7 +23,7 @@ class buildingLayoutCase extends StatelessWidget {
           ),
           titleSection(),
           buttonSection(),
-//          textSection(),
+          textSection(),
         ],
       ),
     );
@@ -31,7 +31,6 @@ class buildingLayoutCase extends StatelessWidget {
 }
 
 /// 信息Section
-
 class titleSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -53,7 +52,7 @@ class titleSection extends StatelessWidget {
                   ),
                 ),
                 new Text(
-                  'Kandersteg, Switzerland',
+                  'Kandersteg, 瑞士',
                   style: new TextStyle(
                     color: Colors.grey[500],
                   ),
@@ -73,7 +72,6 @@ class titleSection extends StatelessWidget {
 }
 
 /// 按钮Section
-
 class buttonSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -82,9 +80,9 @@ class buttonSection extends StatelessWidget {
       child: new  Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          buildButtonColumn(color, Icons.call, 'CALL'),
-          buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-          buildButtonColumn(color, Icons.share, 'SHARE'),
+          buildButtonColumn(color, Icons.call, '电话'),
+          buildButtonColumn(color, Icons.near_me, '导航'),
+          buildButtonColumn(color, Icons.share, '分享'),
         ],
       ),
     );
@@ -113,7 +111,6 @@ Column buildButtonColumn(Color color, IconData icon, String label) {
 }
 
 /// 文字Section
-
 class textSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

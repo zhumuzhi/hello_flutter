@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/buildingLayoutCase.dart';
-import 'package:hello_flutter/PavlovaLayoutCase.dart';
+import 'package:hello_flutter/pavlovaLayoutCase.dart';
+import 'package:hello_flutter/containerCase.dart';
 
 // 商品数量属性；购物车信息增加商品列表信息（包括商品名称，数量及单价）输出，实现小票的基本功能。
 
@@ -38,7 +39,7 @@ class Entry {
 /// 首页ListView
 class _MyHomePageState extends State<MyHomePage> {
 
-  final List<String> entries = <String>['厄希嫩湖','帕夫洛娃','案例C'];
+  final List<String> entries = <String>['厄希嫩湖','帕夫洛娃','containerCase'];
   final List<int>colorCodes = <int>[100,200,300];
 
   @override
@@ -82,13 +83,14 @@ class ListItem extends StatelessWidget {
             );
           }
           if ('$title'.toString() == '帕夫洛娃') {
-            print('跳转至$title');
             Navigator.push(
                 context,
                 new MaterialPageRoute(builder: (context) =>  new PavlovaLayoutCase()));
           }
-          if ('$title'.toString() == '布局C') {
-            print('跳转至$title');
+          if ('$title'.toString() == 'containerCase') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(builder: (context)  => new containerCase()));
           }
         },
       ),

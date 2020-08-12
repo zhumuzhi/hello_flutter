@@ -22,7 +22,7 @@ class buildingLayoutCase extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           titleSection(),
-//          buttonSection(),
+          buttonSection(),
 //          textSection(),
         ],
       ),
@@ -77,42 +77,39 @@ class titleSection extends StatelessWidget {
 class buttonSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Color color = Theme.of(context).primaryColor;
     return  new Container(
       child: new  Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          buildButtonColumn(Icons.call, 'CALL'),
-          buildButtonColumn(Icons.near_me, 'ROUTE'),
-          buildButtonColumn(Icons.share, 'SHARE')
+          buildButtonColumn(color, Icons.call, 'CALL'),
+          buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+          buildButtonColumn(color, Icons.share, 'SHARE'),
         ],
       ),
     );
   }
 }
 
-Column buildButtonColumn(IconData icon, String label) {
-  @override
-  Widget build(BuildContext context) {
-    Color color = Theme.of(context).primaryColor;
-    return new Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        new Icon(icon, color: color),
-        new Container(
-          margin: const EdgeInsets.only(top: 8.0),
-          child: new Text(
-            label,
-            style: new TextStyle(
-              fontSize: 12.0,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
+Column buildButtonColumn(Color color, IconData icon, String label) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Icon(icon, color: color),
+      Container(
+        margin: const EdgeInsets.only(top: 8),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: color,
           ),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
 }
 
 /// 文字Section

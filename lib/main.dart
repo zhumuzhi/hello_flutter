@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/buildingLayoutCase.dart';
-import 'package:hello_flutter/pavlovaLayoutCase.dart';
-import 'package:hello_flutter/containerLayoutCase.dart';
+import 'package:hello_flutter/layoutCase/buildingLayoutCase.dart';
+import 'package:hello_flutter/layoutCase/pavlovaLayoutCase.dart';
+import 'package:hello_flutter/layoutCase/containerLayoutCase.dart';
+import 'package:hello_flutter/layoutCase/gridLayoutCase.dart';
 
 // 商品数量属性；购物车信息增加商品列表信息（包括商品名称，数量及单价）输出，实现小票的基本功能。
 
@@ -39,8 +40,8 @@ class Entry {
 /// 首页ListView
 class _MyHomePageState extends State<MyHomePage> {
 
-  final List<String> entries = <String>['厄希嫩湖','帕夫洛娃','containerCase'];
-  final List<int>colorCodes = <int>[100,200,300];
+  final List<String> entries = <String>['厄希嫩湖','帕夫洛娃','containerCase','gridLayoutCase'];
+  final List<int>colorCodes = <int>[100,200,300,400];
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +92,11 @@ class ListItem extends StatelessWidget {
             Navigator.push(
                 context,
                 new MaterialPageRoute(builder: (context)  => new containerCase()));
+          }
+          if ('$title'.toString() == 'gridLayoutCase') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(builder: (context)  => new gridLayoutCase()));
           }
         },
       ),

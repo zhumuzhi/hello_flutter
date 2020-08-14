@@ -11,6 +11,7 @@ import 'package:hello_flutter/layoutCase/cardLayoutCase.dart';
 import 'package:hello_flutter/sampleExample/AnimatedListSample.dart';
 import 'package:hello_flutter/sampleExample/AppBarBottomSample.dart';
 import 'package:hello_flutter/sampleExample/BaseAppBarSample.dart';
+import 'package:hello_flutter/sampleExample/ExpansionTileSample.dart';
 
 void main() {
   runApp(MyApp());
@@ -55,7 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
     'cardLayoutCase',
     'animatedListCase',
     'AppBarBottomSample',
-    'BaseAppBarSample'
+    'BaseAppBarSample',
+    'ExpansionTileSample',
   ];
   final List<int> colorCodes = <int>[
     100,
@@ -68,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     800,
     900,
     100,
+    200,
   ];
 
   @override
@@ -161,7 +164,12 @@ class ListItem extends StatelessWidget {
                 new MaterialPageRoute(
                     builder: (context) => new BasicAppBarSample()));
           }
-
+          if ('$title'.toString() == 'ExpansionTileSample') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new ExpansionTileSample()));
+          }
         },
       ),
     );

@@ -8,6 +8,9 @@ import 'package:hello_flutter/layoutCase/listViewLayoutCase.dart';
 import 'package:hello_flutter/layoutCase/stackLayoutCase.dart';
 import 'package:hello_flutter/layoutCase/cardLayoutCase.dart';
 
+import 'package:hello_flutter/sampleExample/animatedListCase.dart';
+
+
 // 商品数量属性；购物车信息增加商品列表信息（包括商品名称，数量及单价）输出，实现小票的基本功能。
 
 void main() {
@@ -44,8 +47,8 @@ class Entry {
 /// 首页ListView
 class _MyHomePageState extends State<MyHomePage> {
 
-  final List<String> entries = <String>['厄希嫩湖','帕夫洛娃','containerCase','gridLayoutCase','listViewCase','stackCase', 'cardLayoutCase'];
-  final List<int>colorCodes = <int>[100,200,300,400,500,600,700];
+  final List<String> entries = <String>['Oeschinen','Pavlova','containerCase','gridLayoutCase','listViewCase','stackCase', 'cardLayoutCase', 'animatedListCase'];
+  final List<int>colorCodes = <int>[100,200,300,400,500,600,700, 800];
 
   @override
   Widget build(BuildContext context) {
@@ -81,13 +84,13 @@ class ListItem extends StatelessWidget {
       child: new ListTile(
         title: new Text('$title'),
         onTap: () {
-          if ('$title'.toString() == '厄希嫩湖') {
+          if ('$title'.toString() == 'Oeschinen') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(builder: (context) =>  new buildingLayoutCase()),
             );
           }
-          if ('$title'.toString() == '帕夫洛娃') {
+          if ('$title'.toString() == 'Pavlova') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(builder: (context) =>  new PavlovaLayoutCase()));
@@ -117,6 +120,12 @@ class ListItem extends StatelessWidget {
                 context,
                 new MaterialPageRoute(builder: (context)  => new cardCase()));
           }
+          if ('$title'.toString() == 'animatedListCase') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(builder: (context)  => new AnimatedListSample()));
+          }
+
         },
       ),
     );

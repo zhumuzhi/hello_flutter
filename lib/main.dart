@@ -10,9 +10,7 @@ import 'package:hello_flutter/layoutCase/cardLayoutCase.dart';
 
 import 'package:hello_flutter/sampleExample/AnimatedListSample.dart';
 import 'package:hello_flutter/sampleExample/AppBarBottomSample.dart';
-
-
-// 商品数量属性；购物车信息增加商品列表信息（包括商品名称，数量及单价）输出，实现小票的基本功能。
+import 'package:hello_flutter/sampleExample/BaseAppBarSample.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,18 +36,39 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-
 /// 模块对象
 class Entry {
   Entry(this.title);
+
   final String title;
 }
 
 /// 首页ListView
 class _MyHomePageState extends State<MyHomePage> {
-
-  final List<String> entries = <String>['Oeschinen','Pavlova','containerCase','gridLayoutCase','listViewCase','stackCase', 'cardLayoutCase', 'animatedListCase','AppBarBottomSample'];
-  final List<int>colorCodes = <int>[100, 200, 300, 400, 500, 600, 700, 800, 900];
+  final List<String> entries = <String>[
+    'Oeschinen',
+    'Pavlova',
+    'containerCase',
+    'gridLayoutCase',
+    'listViewCase',
+    'stackCase',
+    'cardLayoutCase',
+    'animatedListCase',
+    'AppBarBottomSample',
+    'BaseAppBarSample'
+  ];
+  final List<int> colorCodes = <int>[
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    100,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -87,53 +106,64 @@ class ListItem extends StatelessWidget {
         onTap: () {
           if ('$title'.toString() == 'Oeschinen') {
             Navigator.push(
-                context,
-                new MaterialPageRoute(builder: (context) =>  new buildingLayoutCase()),
+              context,
+              new MaterialPageRoute(
+                  builder: (context) => new buildingLayoutCase()),
             );
           }
           if ('$title'.toString() == 'Pavlova') {
             Navigator.push(
                 context,
-                new MaterialPageRoute(builder: (context) =>  new PavlovaLayoutCase()));
+                new MaterialPageRoute(
+                    builder: (context) => new PavlovaLayoutCase()));
           }
           if ('$title'.toString() == 'containerCase') {
             Navigator.push(
                 context,
-                new MaterialPageRoute(builder: (context)  => new containerCase()));
+                new MaterialPageRoute(
+                    builder: (context) => new containerCase()));
           }
           if ('$title'.toString() == 'gridLayoutCase') {
             Navigator.push(
                 context,
-                new MaterialPageRoute(builder: (context)  => new gridLayoutCase()));
+                new MaterialPageRoute(
+                    builder: (context) => new gridLayoutCase()));
           }
           if ('$title'.toString() == 'listViewCase') {
             Navigator.push(
                 context,
-                new MaterialPageRoute(builder: (context)  => new listViewCase()));
+                new MaterialPageRoute(
+                    builder: (context) => new listViewCase()));
           }
           if ('$title'.toString() == 'stackCase') {
-            Navigator.push(
-                context,
-                new MaterialPageRoute(builder: (context)  => new stackCase()));
+            Navigator.push(context,
+                new MaterialPageRoute(builder: (context) => new stackCase()));
           }
           if ('$title'.toString() == 'cardLayoutCase') {
-            Navigator.push(
-                context,
-                new MaterialPageRoute(builder: (context)  => new cardCase()));
+            Navigator.push(context,
+                new MaterialPageRoute(builder: (context) => new cardCase()));
           }
           if ('$title'.toString() == 'animatedListCase') {
             Navigator.push(
                 context,
-                new MaterialPageRoute(builder: (context)  => new AnimatedListSample()));
+                new MaterialPageRoute(
+                    builder: (context) => new AnimatedListSample()));
           }
           if ('$title'.toString() == 'AppBarBottomSample') {
             Navigator.push(
                 context,
-                new MaterialPageRoute(builder: (context)  => new AppBarBottomSample()));
+                new MaterialPageRoute(
+                    builder: (context) => new AppBarBottomSample()));
           }
+          if ('$title'.toString() == 'BaseAppBarSample') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new BasicAppBarSample()));
+          }
+
         },
       ),
     );
   }
 }
-

@@ -8,7 +8,8 @@ import 'package:hello_flutter/layoutCase/listViewLayoutCase.dart';
 import 'package:hello_flutter/layoutCase/stackLayoutCase.dart';
 import 'package:hello_flutter/layoutCase/cardLayoutCase.dart';
 
-import 'package:hello_flutter/sampleExample/animatedListCase.dart';
+import 'package:hello_flutter/sampleExample/AnimatedListSample.dart';
+import 'package:hello_flutter/sampleExample/AppBarBottomSample.dart';
 
 
 // 商品数量属性；购物车信息增加商品列表信息（包括商品名称，数量及单价）输出，实现小票的基本功能。
@@ -47,8 +48,8 @@ class Entry {
 /// 首页ListView
 class _MyHomePageState extends State<MyHomePage> {
 
-  final List<String> entries = <String>['Oeschinen','Pavlova','containerCase','gridLayoutCase','listViewCase','stackCase', 'cardLayoutCase', 'animatedListCase'];
-  final List<int>colorCodes = <int>[100,200,300,400,500,600,700, 800];
+  final List<String> entries = <String>['Oeschinen','Pavlova','containerCase','gridLayoutCase','listViewCase','stackCase', 'cardLayoutCase', 'animatedListCase','AppBarBottomSample'];
+  final List<int>colorCodes = <int>[100, 200, 300, 400, 500, 600, 700, 800, 900];
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +126,11 @@ class ListItem extends StatelessWidget {
                 context,
                 new MaterialPageRoute(builder: (context)  => new AnimatedListSample()));
           }
-
+          if ('$title'.toString() == 'AppBarBottomSample') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(builder: (context)  => new AppBarBottomSample()));
+          }
         },
       ),
     );

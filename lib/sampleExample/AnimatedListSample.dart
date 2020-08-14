@@ -7,7 +7,8 @@ class AnimatedListSample extends StatefulWidget {
 }
 
 class _AnimatedListSampleState extends State<AnimatedListSample> {
-  final GlobalKey<AnimatedListState> _listKey = new GlobalKey<AnimatedListState>();
+  final GlobalKey<AnimatedListState> _listKey =
+      new GlobalKey<AnimatedListState>();
   ListModel<int> _list;
   int _selectedItem;
   int _nextItem;
@@ -23,8 +24,8 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
     _nextItem = 3;
   }
 
-  Widget _buildItem(BuildContext context, int index,
-      Animation<double> animation) {
+  Widget _buildItem(
+      BuildContext context, int index, Animation<double> animation) {
     return new CardItem(
       animation: animation,
       item: _list[index],
@@ -37,9 +38,8 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
     );
   }
 
-
-  Widget _buildRemovedItem(int item, BuildContext context,
-      Animation<double> animation) {
+  Widget _buildRemovedItem(
+      int item, BuildContext context, Animation<double> animation) {
     return new CardItem(
       animation: animation,
       item: item,
@@ -48,8 +48,8 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
   }
 
   void _insert() {
-    final int index = _selectedItem == null ? _list.length : _list.indexOf(
-        _selectedItem);
+    final int index =
+        _selectedItem == null ? _list.length : _list.indexOf(_selectedItem);
     _list.insert(index, _nextItem++);
   }
 
@@ -71,22 +71,22 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
           actions: <Widget>[
             new IconButton(
               icon: const Icon(Icons.add_circle),
-              onPressed: null,
+              onPressed: _insert,
               tooltip: 'insert a new item',
             ),
             new IconButton(
               icon: const Icon(Icons.remove_circle),
-              onPressed: null,
+              onPressed: _remove,
               tooltip: 'remove the selected item',
             ),
           ],
         ),
         body: new Padding(
-            padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: new AnimatedList(
-              key: _listKey,
-              initialItemCount: _list.length,
-              itemBuilder: _buildItem,
+            key: _listKey,
+            initialItemCount: _list.length,
+            itemBuilder: _buildItem,
           ),
         ),
       ),
@@ -118,14 +118,19 @@ class ListModel<E> {
 
   E removeAt(int index) {
     final E removedItem = _items.removeAt(index);
-    if(removedItem != null) {
-      _animatedList.removeItem(index, (BuildContext context, Animation<double> animation) => removedItemBuilder(removedItem, context, animation));
+    if (removedItem != null) {
+      _animatedList.removeItem(
+          index,
+          (BuildContext context, Animation<double> animation) =>
+              removedItemBuilder(removedItem, context, animation));
     }
     return removedItem;
   }
 
   int get length => _items.length;
+
   E operator [](int index) => _items[index];
+
   int indexOf(E item) => _items.indexOf(item);
 }
 
@@ -154,10 +159,10 @@ class CardItem extends StatelessWidget {
     if (selected)
       textStyle = textStyle.copyWith(color: Colors.lightGreenAccent[400]);
     return new Padding(
-        padding: const EdgeInsets.all(2.0),
+      padding: const EdgeInsets.all(2.0),
       child: new SizeTransition(
-          axis: Axis.vertical,
-          sizeFactor: animation,
+        axis: Axis.vertical,
+        sizeFactor: animation,
         child: new GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: onTap,

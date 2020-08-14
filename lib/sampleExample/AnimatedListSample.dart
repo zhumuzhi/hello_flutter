@@ -24,6 +24,11 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
     _nextItem = 3;
   }
 
+  void didChangeDependencies(){
+
+  }
+
+
   Widget _buildItem(
       BuildContext context, int index, Animation<double> animation) {
     return new CardItem(

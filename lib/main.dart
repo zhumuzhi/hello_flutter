@@ -13,6 +13,8 @@ import 'package:hello_flutter/sampleExample/AppBarBottomSample.dart';
 import 'package:hello_flutter/sampleExample/BaseAppBarSample.dart';
 import 'package:hello_flutter/sampleExample/ExpansionTileSample.dart';
 import 'package:hello_flutter/sampleExample/TabbedAppBarSample.dart';
+import 'package:hello_flutter/sampleExample/InteractionSample.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -60,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'BaseAppBarSample',
     'ExpansionTileSample',
     'TabbedAppBarSample',
+    'InteractionSample',
   ];
   final List<int> colorCodes = <int>[
     100,
@@ -74,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     100,
     200,
     300,
+    400,
   ];
 
   @override
@@ -178,6 +182,12 @@ class ListItem extends StatelessWidget {
                 context,
                 new MaterialPageRoute(
                     builder: (context) => new TabbedAppBarSample()));
+          }
+          if ('$title'.toString() == 'InteractionSample') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new TapboxASample()));
           }
         },
       ),

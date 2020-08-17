@@ -5,10 +5,10 @@ class TapboxASample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'TapboxA',
+      title: 'Interaction',
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('TapboxA Demo'),
+          title: new Text('Interaction Demo'),
         ),
 
         body: new Column(
@@ -27,7 +27,7 @@ class TapboxASample extends StatelessWidget {
 }
 
 
-//------------------------ TapboxA --------------------------------
+///------------------------ TapboxA --------------------------------
 
 class TapboxA extends StatefulWidget {
   TapboxA({Key key}) : super(key: key);
@@ -66,7 +66,7 @@ class _TapboxAState extends State<TapboxA> {
 }
 
 
-//------------------------ TapboxB --------------------------------
+///------------------------ TapboxB --------------------------------
 
 class TapboxBParentWidget extends StatefulWidget {
   @override
@@ -123,3 +123,67 @@ class TapboxB extends StatelessWidget {
     );
   }
 }
+
+///------------------------ TapboxB --------------------------------
+
+class TapBoxCParentWidget extends StatefulWidget {
+  @override
+  _BoxCParentWidgetState createState() => new _BoxCParentWidgetState();
+}
+
+class _BoxCParentWidgetState extends State<TapBoxCParentWidget> {
+
+  bool _active= false;
+
+  void _handleTapboxChanged(bool newValue) {
+    setState(() {
+      _active = newValue;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      child: new Container(
+
+      ),
+    );
+
+  }
+
+}
+
+class TapboxC extends StatefulWidget {
+
+  TapboxC({Key key, this.active:false, @required this.onChanged}) : super(key: key);
+  final bool active;
+  final ValueChanged<bool> onChanged;
+
+  _TapboxCState createState() => new _TapboxCState();
+
+}
+
+class _TapboxCState extends State<TapboxC> {
+  bool _highlight = false;
+
+  void _handleTapDown(TapDownDetails details) {
+
+  }
+
+  
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
+
+}
+
+
+
+
+
+

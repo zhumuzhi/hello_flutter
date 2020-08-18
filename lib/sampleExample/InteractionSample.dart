@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TapboxASample extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -10,27 +9,25 @@ class TapboxASample extends StatelessWidget {
         appBar: new AppBar(
           title: new Text('Interaction Demo'),
         ),
-
         body: new Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             new TapboxA(),
             new TapboxBParentWidget(),
+            new TapBoxCParentWidget(),
           ],
         ),
-
       ),
-
     );
   }
 }
-
 
 ///------------------------ TapboxA --------------------------------
 
 class TapboxA extends StatefulWidget {
   TapboxA({Key key}) : super(key: key);
+
   @override
   _TapboxAState createState() => new _TapboxAState();
 }
@@ -51,7 +48,8 @@ class _TapboxAState extends State<TapboxA> {
       onTap: _handleTap,
       child: new Container(
         child: new Center(
-          child: new Text( _active ? 'Active' : 'Inactive',
+          child: new Text(
+            _active ? 'Active' : 'Inactive',
             style: new TextStyle(fontSize: 32.0, color: Colors.white),
           ),
         ),
@@ -64,7 +62,6 @@ class _TapboxAState extends State<TapboxA> {
     );
   }
 }
-
 
 ///------------------------ TapboxB --------------------------------
 
@@ -95,7 +92,8 @@ class _ParentWidgetState extends State<TapboxBParentWidget> {
 }
 
 class TapboxB extends StatelessWidget {
-  TapboxB({Key key, this.active: false,@required this.onChanged}) : super(key: key);
+  TapboxB({Key key, this.active: false, @required this.onChanged})
+      : super(key: key);
   final bool active;
   final ValueChanged<bool> onChanged;
 
@@ -111,7 +109,7 @@ class TapboxB extends StatelessWidget {
         child: new Center(
           child: new Text(
             active ? 'Active' : 'Inactive',
-            style: new TextStyle(fontSize: 32.0,color: Colors.white),
+            style: new TextStyle(fontSize: 32.0, color: Colors.white),
           ),
         ),
         width: 200.0,
@@ -132,8 +130,7 @@ class TapBoxCParentWidget extends StatefulWidget {
 }
 
 class _BoxCParentWidgetState extends State<TapBoxCParentWidget> {
-
-  bool _active= false;
+  bool _active = false;
 
   void _handleTapboxChanged(bool newValue) {
     setState(() {
@@ -144,46 +141,69 @@ class _BoxCParentWidgetState extends State<TapBoxCParentWidget> {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      child: new Container(
-
+      child: new TapboxC(
+        active: _active,
+        onChanged: _handleTapboxChanged,
       ),
     );
-
   }
-
 }
 
 class TapboxC extends StatefulWidget {
-
-  TapboxC({Key key, this.active:false, @required this.onChanged}) : super(key: key);
+  TapboxC({Key key, this.active: false, @required this.onChanged})
+      : super(key: key);
   final bool active;
   final ValueChanged<bool> onChanged;
 
   _TapboxCState createState() => new _TapboxCState();
-
 }
 
 class _TapboxCState extends State<TapboxC> {
   bool _highlight = false;
 
   void _handleTapDown(TapDownDetails details) {
-
+    setState(() {
+      _highlight = true;
+    });
   }
 
-  
+  void _handleTapUp(TapUpDetails details) {
+    setState(() {
+      _highlight = false;
+    });
+  }
 
+  void _handelTapCancel() {
+    setState(() {
+      _highlight = false;
+    });
+  }
 
+  void _handleTap() {
+    widget.onChanged(!widget.active);
+  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return new GestureDetector(
+      onTapDown: _handleTapDown,
+      onTapUp: _handleTapUp,
+      onTap: _handleTap,
+      onTapCancel: _handelTapCancel,
+      child: new Container(
+        child: new Center(
+          child: new Text(widget.active ? 'Active' : 'Inactive',
+              style: new TextStyle(fontSize: 32.0, color: Colors.white)),
+        ),
+        width: 200.0,
+        height: 200.0,
+        decoration: new BoxDecoration(
+          color: widget.active ? Colors.lightGreen[700] : Colors.grey[600],
+          border: _highlight
+              ? new Border.all(color: Colors.teal[700], width: 10.0)
+              : null,
+        ),
+      ),
+    );
   }
-
 }
-
-
-
-
-
-

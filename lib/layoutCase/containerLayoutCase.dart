@@ -30,7 +30,8 @@ class containerCase extends StatelessWidget {
         borderRadius: const BorderRadius.all(const Radius.circular(8)),
       ),
       margin: const EdgeInsets.all(4),
-      child: Image.asset('images/pic$imageIndex.jpg'),
+      child: Image.asset('assets/'
+          'images/pic$imageIndex.jpg'),
     ),
   );
 

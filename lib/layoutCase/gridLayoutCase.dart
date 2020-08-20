@@ -25,7 +25,7 @@ class gridLayoutCase extends StatelessWidget{
 
   List<Container> buildGridTitleList(int count) =>  List.generate(count, (index) => Container(
 //      padding: EdgeInsets.only(top: 10),
-      child: Image.asset('images/pic3.jpg')
+      child: Image.asset('assets/images/pic3.jpg')
     )
   );
 

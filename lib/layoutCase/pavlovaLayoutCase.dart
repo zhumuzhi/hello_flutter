@@ -117,7 +117,7 @@ class PavlovaLayoutCase extends StatelessWidget {
     );
 
     final mianImage = Image.asset(
-      'images/pavlova.jpg',
+      'assets/images/pavlova.jpg',
       width: 600.0,
       height: 240.0,
       fit: BoxFit.cover,

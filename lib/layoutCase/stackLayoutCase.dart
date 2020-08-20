@@ -8,7 +8,7 @@ class stackCase extends StatelessWidget {
       alignment: const Alignment(0.6, 0.6),
       children: <Widget>[
         CircleAvatar(
-          backgroundImage: AssetImage('images/pic1.jpg'),
+          backgroundImage: AssetImage('assets/images/pic1.jpg'),
           radius: 100,
         ),
         Container(

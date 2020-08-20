@@ -12,7 +12,7 @@ class buildingLayoutCase extends StatelessWidget {
       body: new ListView(
         children: <Widget>[
           new Image.asset(
-            'images/lake.jpg',
+            'assets/images/lake.jpg',
             width: 600.0,
             height: 240.0,
             fit: BoxFit.cover,

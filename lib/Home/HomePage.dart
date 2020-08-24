@@ -49,7 +49,7 @@ class _MyHomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Homepage'),
+        title: Text('首页'),
       ),
       body: ListView.separated(
         padding: const EdgeInsets.all(8),

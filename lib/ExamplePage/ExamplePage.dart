@@ -39,7 +39,7 @@ class _ExamplePageState extends State<ExamplePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Example List'),
+        title: Text('案例列表'),
       ),
       body: ListView.separated(
         padding: const EdgeInsets.all(8),

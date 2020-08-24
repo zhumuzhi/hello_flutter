@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hello_flutter/Home/HomePage.dart';
 import 'package:hello_flutter/ExamplePage/ExamplePage.dart';
+import 'package:hello_flutter/WidgetExample/widget_ListView.dart';
 
 class TabsPage extends StatefulWidget {
   TabsPage({Key key}) : super(key: key);
@@ -17,20 +18,20 @@ class _TabsPageState extends State<TabsPage> {
   List listTabs = [
     HomePage(),
     ExamplePage(),
+    ListViewWidget()
   ];
 
   static var tabs = [
     BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
     BottomNavigationBarItem(icon: Icon(Icons.category), title: Text('案例')),
+    BottomNavigationBarItem(icon: Icon(Icons.dialpad), title: Text('Widget')),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: this.listTabs[this.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: this.currentIndex,
-        iconSize: 30.0,
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {

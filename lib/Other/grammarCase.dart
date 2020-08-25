@@ -1,5 +1,91 @@
 
 
+import 'package:hello_flutter/main.dart';
+
+/// 类定义
+
+// 普通类
+class Point {
+  // 类变量-默认值为0
+  static num factor = 0;
+  // 成员变量
+  num x, y;
+  // 通过构函数进行成员变量初始化(语法糖，等同于在函数体内：this.x = x; this.y = y;)
+  Point(this.x, this.y);
+  // 对象方法
+  void printInfo() => print('$x, $y');
+  // 类函数
+  static void printZValue() => print('factor'); //类函数
+}
+
+/// 多方法初始化与重定向
+
+// 多种初始化，重定向演示
+class RePoint {
+  num x,y,z;
+  // 初始化成变量变量z
+  RePoint(this.x, this.y) : z = 0;
+  // 重新定向构造函数
+  RePoint.bottom(num x) : this(x, 0);
+  void printInfo() => print('($x, $y, $z)');
+}
+
+///  继承父类和接口实现
+
+class MatePoint {
+  num x = 0, y = 0;
+  void printInfo() => print('$x, $y');
+}
+
+// Vector继承自Point
+class Vector extends MatePoint {
+  num z = 0;
+  @override
+  void printInfo() {
+    // TODO: implement printInfo
+    print('$x,$y,$z'); // 覆写了printInfo实现
+    super.printInfo();
+  }
+//  void printInfo() => print('$x,$y,$z'); // 简化写法
+}
+
+class Coordinate implements MatePoint {
+  num x = 0, y = 0; // 成员变量需要重新声明
+  void printInfo() =>print('$x,$y'); // 成员函数需要重新声明实现
+}
+
+
+// 调用演示
+void PointClassExample () {
+  var p = new Point(100, 200); // new 关键字可以省略
+  p.printInfo(); // 输出（100，200）;
+  Point.factor = 10;
+  Point.printZValue(); // 输出10
+
+
+  var reP =RePoint.bottom(100);
+
+
+  var vector = Vector();
+  vector
+    ..x = 1
+    ..y = 2
+    ..z = 3; // 级联运算符，等同于vector.x=1; vector.y=2; vector.z=3;
+  vector.printInfo(); //输出（1，2，3）
+
+  var coordinate = Coordinate();
+  coordinate
+    ..x = 1
+    ..y = 2; // 级联运算符，等同于coordinate.x=1; coordinate.y=2;
+  coordinate.printInfo(); //输出（1，2）
+  print(coordinate is MatePoint);
+  print(coordinate is Coordinate);
+
+}
+
+
+///综合案例
+
 class Meta{
   double price;
   String name;

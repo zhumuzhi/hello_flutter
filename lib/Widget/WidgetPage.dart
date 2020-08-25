@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'WidgetExmple/widget_ListView.dart';
 
 class WidgetList extends StatelessWidget {
   final List<String> titleList = <String>[
@@ -10,7 +11,7 @@ class WidgetList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('WidgetList')),
+      appBar: AppBar(title: Text('Widgets')),
       body: ListView.separated(
         padding: const EdgeInsets.all(8),
         itemCount: titleList.length,
@@ -35,10 +36,12 @@ class _ListItem extends StatelessWidget {
           title: Text('$title'),
           onTap: () {
             print('点击了 $title Item');
+
             if ('$title'.toString() == 'ListView') {
-//              Navigator.push(context,
-//                  MaterialPageRoute(builder: (context) => ListViewWidget()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ListViewWidget()));
             }
+
           }),
     );
   }

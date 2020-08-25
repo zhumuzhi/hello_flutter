@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class cardCase extends StatelessWidget {
+class CardCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class gridLayoutCase extends StatelessWidget{
+class GridLayoutCase extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(

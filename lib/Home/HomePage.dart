@@ -69,9 +69,9 @@ class _MyHomePageState extends State<HomePage> {
 /// ListItem
 
 class ListItem extends StatelessWidget {
-  const ListItem({Key key, this.colorValue, this.title}) : super(key: key);
   final int colorValue;
   final String title;
+  const ListItem({Key key, this.colorValue, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class ListItem extends StatelessWidget {
             Navigator.push(
               context,
               new MaterialPageRoute(
-                  builder: (context) => new buildingLayoutCase()),
+                  builder: (context) => new BuildingLayoutCase()),
             );
           }
           if ('$title'.toString() == 'Pavlova') {
@@ -98,27 +98,27 @@ class ListItem extends StatelessWidget {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new containerCase()));
+                    builder: (context) => new ContainerCase()));
           }
           if ('$title'.toString() == 'gridLayoutCase') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new gridLayoutCase()));
+                    builder: (context) => new GridLayoutCase()));
           }
           if ('$title'.toString() == 'listViewCase') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new listViewCase()));
+                    builder: (context) => new ListViewCase()));
           }
           if ('$title'.toString() == 'stackCase') {
             Navigator.push(context,
-                new MaterialPageRoute(builder: (context) => new stackCase()));
+                new MaterialPageRoute(builder: (context) => new StackCase()));
           }
           if ('$title'.toString() == 'cardLayoutCase') {
             Navigator.push(context,
-                new MaterialPageRoute(builder: (context) => new cardCase()));
+                new MaterialPageRoute(builder: (context) => new CardCase()));
           }
           if ('$title'.toString() == 'animatedListCase') {
             Navigator.push(

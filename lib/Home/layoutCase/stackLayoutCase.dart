@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class stackCase extends StatelessWidget {
+class StackCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 

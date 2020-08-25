@@ -6,7 +6,6 @@ import 'package:hello_flutter/ExamplePage/sampleExample/ExpansionTileSample.dart
 import 'package:hello_flutter/ExamplePage/sampleExample/TabbedAppBarSample.dart';
 import 'package:hello_flutter/ExamplePage/sampleExample/InteractionSample.dart';
 
-
 class ExamplePage extends StatefulWidget {
   @override
   createState() => _ExamplePageState();
@@ -15,6 +14,7 @@ class ExamplePage extends StatefulWidget {
 /// 模块对象
 class Entry {
   Entry(this.title);
+
   final String title;
 }
 

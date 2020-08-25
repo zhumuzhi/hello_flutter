@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hello_flutter/Home/HomePage.dart';
 import 'package:hello_flutter/ExamplePage/ExamplePage.dart';
-import 'package:hello_flutter/WidgetExample/widget_ListView.dart';
+import 'package:hello_flutter/WidgetExample/WidgetList.dart';
 
 class TabsPage extends StatefulWidget {
   TabsPage({Key key}) : super(key: key);
@@ -18,7 +18,7 @@ class _TabsPageState extends State<TabsPage> {
   List listTabs = [
     HomePage(),
     ExamplePage(),
-    ListViewWidget()
+    WidgetList()
   ];
 
   static var tabs = [

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class buildingLayoutCase extends StatelessWidget {
+class BuildingLayoutCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,9 +17,9 @@ class buildingLayoutCase extends StatelessWidget {
             height: 240.0,
             fit: BoxFit.cover,
           ),
-          titleSection(),
-          buttonSection(),
-          textSection(),
+          TitleSection(),
+          ButtonSection(),
+          TextSection(),
         ],
       ),
     );
@@ -27,7 +27,7 @@ class buildingLayoutCase extends StatelessWidget {
 }
 
 /// 信息Section
-class titleSection extends StatelessWidget {
+class TitleSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -47,7 +47,6 @@ class titleSection extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 new Text(
                   'Kandersteg, Switzerland',
                   style: new TextStyle(
@@ -65,12 +64,12 @@ class titleSection extends StatelessWidget {
 }
 
 /// 按钮Section
-class buttonSection extends StatelessWidget {
+class ButtonSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color color = Theme.of(context).primaryColor;
-    return  new Container(
-      child: new  Row(
+    return new Container(
+      child: new Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           buildButtonColumn(color, Icons.call, 'CALL'),
@@ -104,7 +103,7 @@ Column buildButtonColumn(Color color, IconData icon, String label) {
 }
 
 /// 文字Section
-class textSection extends StatelessWidget {
+class TextSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -124,15 +123,12 @@ class textSection extends StatelessWidget {
   }
 }
 
-
-
 class FavoriteWidget extends StatefulWidget {
   @override
   _FavoriteWidgetState createState() => new _FavoriteWidgetState();
 }
 
 class _FavoriteWidgetState extends State<FavoriteWidget> {
-
   bool _isFavorited = true;
   int _favoriteCount = 41;
 
@@ -156,9 +152,11 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
         new Container(
           padding: new EdgeInsets.all(0.0),
           child: new IconButton(
-              icon: (_isFavorited ? new Icon(Icons.star) : new Icon(Icons.star_border)),
-              color: Colors.red[500],
-              onPressed: _toggleFavorite,
+            icon: (_isFavorited
+                ? new Icon(Icons.star)
+                : new Icon(Icons.star_border)),
+            color: Colors.red[500],
+            onPressed: _toggleFavorite,
           ),
         ),
         new SizedBox(
@@ -169,8 +167,5 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
         ),
       ],
     );
-
   }
 }
-
-

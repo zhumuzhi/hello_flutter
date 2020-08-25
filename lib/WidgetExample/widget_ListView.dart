@@ -10,13 +10,13 @@ class ListViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 1,
       child: Scaffold(
         body: TabBarView(
           children: [
             ParallelWidget(),
-            ScrollNotificationWidget(),
-            ScrollControllerWidget()
+//            ScrollNotificationWidget(),
+//            ScrollControllerWidget()
           ],
         ),
         bottomNavigationBar: TabBar(
@@ -26,8 +26,8 @@ class ListViewWidget extends StatelessWidget {
             indicatorColor: Colors.red,
             tabs: [
               Tab(icon: Icon(Icons.home),text: "视差",),
-              Tab(icon: Icon(Icons.rss_feed),text: "Notification",),
-              Tab(icon: Icon(Icons.perm_identity),text: "Controller",)
+//              Tab(icon: Icon(Icons.rss_feed),text: "Notification",),
+//              Tab(icon: Icon(Icons.perm_identity),text: "Controller",)
             ]),
       ),
     );
@@ -55,6 +55,8 @@ class ParallelWidget extends StatelessWidget {
           ]);
   }
 }
+
+
 
 class ScrollNotificationWidget extends StatelessWidget {
   @override

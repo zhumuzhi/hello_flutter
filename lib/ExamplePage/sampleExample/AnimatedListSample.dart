@@ -25,7 +25,7 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
   }
 
   void didChangeDependencies(){
-
+    super.didChangeDependencies();
   }
 
 

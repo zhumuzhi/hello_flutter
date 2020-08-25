@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class containerCase extends StatelessWidget {
+class ContainerCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('ContainerCase'),
       ),
-      body: Center(child: buildImaegColumn()),
+      body: Center(child: buildImageColumn()),
     );
   }
 
-  Widget buildImaegColumn() => Container(
+  Widget buildImageColumn() => Container(
     decoration: BoxDecoration(
       color: Colors.black26,
     ),

@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/Widget/WidgetExmple/widget_MultiChild.dart';
 import 'WidgetExmple/widget_ListView.dart';
 import 'WidgetExmple/widget_SingleChild.dart';
 
@@ -7,6 +7,7 @@ class WidgetList extends StatelessWidget {
   final List<String> titleList = <String>[
     'ListView',
     'singleChild',
+    'multiChild',
     'OtherView'
   ];
 
@@ -22,7 +23,7 @@ class WidgetList extends StatelessWidget {
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
-    );/**/
+    ); /**/
   }
 }
 
@@ -30,6 +31,7 @@ class _ListItem extends StatelessWidget {
   final String title;
 
   const _ListItem({Key key, this.title}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,6 +50,10 @@ class _ListItem extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => SingleChildCase()));
             }
 
+            if ('$title'.toString() == 'multiChild') {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MultiChildCase()));
+            }
           }),
     );
   }

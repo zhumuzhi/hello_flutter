@@ -5,35 +5,40 @@ class MultiChildCase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('multiChildCase')),
+      appBar: AppBar(title: Text('multiChild—Widget-示例')),
       body: Column(
         children: [
-          _space('Row'),
-          _rowCase(),
-          _space('Column'),
-          _columnCase()
+          _space('Row'), _rowCase(),
+          _space('Column'), _columnCase(),
+          _space('到底了'),
         ],
       ),
     );
   }
 
-  Widget _space (String title){
+  Widget _space(String title) {
     return Container(
-      color: Colors.grey, height: 20, width: KScreen.width(),
+      color: Colors.grey,
+      height: 20,
+      width: KScreen.width(),
       child: Center(child: Text('$title')),
     );
   }
 
-  Widget _rowCase() {
-    return Row(
-      children: <Widget>[
-        Container(color: Colors.yellow, width: 60, height: 80),
-        Container(color: Colors.red, width: 100, height: 180),
-        Container(color: Colors.black, width: 60, height: 80),
-        Container(color: Colors.green, width: 60, height: 80),
-      ],
-    );
-  }
+Widget _rowCase() {
+  return Row(
+    children: <Widget>[
+      Expanded(
+          flex: 1,
+          child: Container(color: Colors.yellow, width: 60, height: 80)),
+      Container(color: Colors.red, width: 100, height: 180),
+      Container(color: Colors.black, width: 60, height: 80),
+      Expanded(
+          flex: 1,
+          child: Container(color: Colors.green, width: 60, height: 80)),
+    ],
+  );
+}
 
   Widget _columnCase() {
     return Column(
@@ -46,3 +51,7 @@ class MultiChildCase extends StatelessWidget {
     );
   }
 }
+
+
+
+

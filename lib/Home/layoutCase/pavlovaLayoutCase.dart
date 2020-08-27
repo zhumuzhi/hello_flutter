@@ -9,7 +9,7 @@ class PavlovaLayoutCase extends StatelessWidget {
     );
   }
 
-  Widget  buildPavlovalCase(String title) {
+  Widget buildPavlovalCase(String title) {
     final titleText = Container(
       padding: EdgeInsets.all(20),
       child: Text(
@@ -61,7 +61,7 @@ class PavlovaLayoutCase extends StatelessWidget {
         ],
       ),
     );
-    
+
     final descTextStyle = TextStyle(
       color: Colors.black,
       fontWeight: FontWeight.w800,
@@ -70,7 +70,7 @@ class PavlovaLayoutCase extends StatelessWidget {
       fontSize: 18,
       height: 2,
     );
-    
+
     final iconList = DefaultTextStyle.merge(
       style: descTextStyle,
       child: Container(

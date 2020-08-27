@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'WidgetExmple/widget_ListView.dart';
+import 'WidgetExmple/widget_SingleChild.dart';
 
 class WidgetList extends StatelessWidget {
   final List<String> titleList = <String>[
     'ListView',
+    'singleChild',
     'OtherView'
   ];
 
@@ -40,6 +42,10 @@ class _ListItem extends StatelessWidget {
             if ('$title'.toString() == 'ListView') {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ListViewWidget()));
+            }
+            if ('$title'.toString() == 'singleChild') {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SingleChildCase()));
             }
 
           }),

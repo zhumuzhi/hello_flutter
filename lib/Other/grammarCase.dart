@@ -1,7 +1,4 @@
 
-
-import 'package:hello_flutter/main.dart';
-
 /// 类定义
 
 // 普通类
@@ -56,7 +53,7 @@ class Coordinate implements MatePoint {
 
 
 // 调用演示
-void PointClassExample () {
+void pointClassExample () {
   var p = new Point(100, 200); // new 关键字可以省略
   p.printInfo(); // 输出（100，200）;
   Point.factor = 10;

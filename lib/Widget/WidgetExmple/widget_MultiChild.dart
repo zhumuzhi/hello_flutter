@@ -6,7 +6,7 @@ class MultiChildCase extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('multiChild—Widget-示例')),
-      body: Column(
+      body: ListView(
         children: [
           _space('Row'),
           _mainRowCase(),
@@ -21,7 +21,7 @@ class MultiChildCase extends StatelessWidget {
   Widget _mainRowCase () {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.max,
       children: [
         Container(color: Colors.yellow, width: 60, height: 80),
         Container(color: Colors.red, width: 100, height: 180),

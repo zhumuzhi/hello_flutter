@@ -3,6 +3,7 @@ import 'package:hello_flutter/Widget/WidgetExmple/widget_MultiChild.dart';
 import 'WidgetExmple/widget_ListView.dart';
 import 'WidgetExmple/widget_SingleChild.dart';
 import 'WidgetExmple/widget_Stack.dart';
+import 'WidgetExmple/widget_ComboWidget.dart';
 
 
 class WidgetList extends StatelessWidget {
@@ -11,6 +12,7 @@ class WidgetList extends StatelessWidget {
     'singleChild',
     'multiChild',
     'stackWidget',
+    'comboWidget',
     'OtherView'
   ];
 
@@ -63,6 +65,12 @@ class _ListItem extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => StackWidgetCase()));
             }
+
+            if ('$title'.toString() == 'comboWidget') {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ComboWidgetCase()));
+            }
+
 
           }),
     );

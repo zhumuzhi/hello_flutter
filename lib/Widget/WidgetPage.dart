@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:hello_flutter/Widget/WidgetExmple/widget_MultiChild.dart';
 import 'WidgetExmple/widget_ListView.dart';
 import 'WidgetExmple/widget_SingleChild.dart';
+import 'WidgetExmple/widget_Stack.dart';
+
 
 class WidgetList extends StatelessWidget {
   final List<String> titleList = <String>[
     'ListView',
     'singleChild',
     'multiChild',
+    'stackWidget',
     'OtherView'
   ];
 
@@ -55,6 +58,12 @@ class _ListItem extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => MultiChildCase()));
             }
+
+            if ('$title'.toString() == 'stackWidget') {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => StackWidgetCase()));
+            }
+
           }),
     );
   }

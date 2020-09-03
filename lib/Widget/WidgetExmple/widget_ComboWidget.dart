@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+
+
+/// Widget组装
 
 class UpdateItemModel {
   String appIcon;
@@ -32,15 +36,16 @@ class ComboWidgetCase extends StatelessWidget {
                 appName: "Google Maps - Transit & Fond",
                 appSize: "137.2",
                 appVersion: "Version 5.19",
-                appDate: "2019年6月5日"),onPressed: (){print("点击了Open按钮");},
-          )
+                appDate: "2019年6月5日"),
+            onPressed: () {
+              print("点击了Open按钮");
+            },
+          ),
+          Container(height: 60),
+          Cake(),
         ],
       ),
     );
-  }
-
-  Widget buildTopRow(BuildContext context, UpdateItemModel model) {
-    return Container();
   }
 }
 
@@ -102,17 +107,80 @@ class UpdatedItemWidget extends StatelessWidget {
 
   Widget buildBottomRow(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(model.appDescription),
-          Padding(
-            padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-            child: Text("${model.appVersion} - ${model.appSize} MB"),
-          )
-        ],
+        padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Stack(
+                children: [
+                  Positioned(child: Text(model.appDescription, maxLines: 2)),
+                  Positioned(
+                    right: -10.0,
+                    child: FlatButton(
+                      onPressed: () {
+                        print("点击了More按钮, 根据状态设置行高");
+                      },
+                      child: Text('More',
+                          style: TextStyle(
+                              color: Colors.blue,
+                              backgroundColor: Colors.white)),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Text("${model.appVersion} • ${model.appSize} MB"))
+            ]));
+  }
+}
+
+/// 绘制图形
+
+class Cake extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: CustomPaint(
+        size: Size(200, 200),
+        painter: WheelPainter(),
       ),
     );
   }
+}
+
+class WheelPainter extends CustomPainter {
+  //设置画笔颜色
+  Paint getColoredPaint(Color color) {
+    Paint paint = Paint();
+    paint.color = color;
+    return paint;
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    //饼图尺寸
+    double wheelSize = min(size.width, size.height) / 2;
+    double nbElem = 6;
+    double radius = (2 * pi) / nbElem;
+    Rect boundingRect = Rect.fromCircle(
+        center: Offset(wheelSize, wheelSize), radius: wheelSize);
+
+    //画圆弧，每次1/6个圆弧
+    canvas.drawArc(
+        boundingRect, 0, radius, true, getColoredPaint(Colors.orange));
+    canvas.drawArc(
+        boundingRect, radius, radius, true, getColoredPaint(Colors.black38));
+    canvas.drawArc(
+        boundingRect, radius * 2, radius, true, getColoredPaint(Colors.green));
+    canvas.drawArc(
+        boundingRect, radius * 3, radius, true, getColoredPaint(Colors.red));
+    canvas.drawArc(
+        boundingRect, radius * 4, radius, true, getColoredPaint(Colors.blue));
+    canvas.drawArc(
+        boundingRect, radius * 5, radius, true, getColoredPaint(Colors.pink));
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => oldDelegate != this;
 }

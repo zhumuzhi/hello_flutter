@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:hello_flutter/ExamplePage/sampleExample/AppBarBottomSample.dart';
-import 'package:hello_flutter/ExamplePage/sampleExample/BaseAppBarSample.dart';
-import 'package:hello_flutter/ExamplePage/sampleExample/ExpansionTileSample.dart';
-import 'package:hello_flutter/ExamplePage/sampleExample/TabbedAppBarSample.dart';
-import 'package:hello_flutter/ExamplePage/sampleExample/InteractionSample.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/AppBarBottomSample.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/BaseAppBarSample.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/ExpansionTileSample.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/TabbedAppBarSample.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/InteractionSample.dart';
 
 class ExamplePage extends StatefulWidget {
   @override

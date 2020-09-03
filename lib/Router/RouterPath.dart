@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/Home/HomePage.dart';
-import 'package:hello_flutter/ExamplePage/ExamplePage.dart';
+import 'package:hello_flutter/hf_home/HomePage.dart';
+import 'package:hello_flutter/hf_examplePage/ExamplePage.dart';
 
 /// 环境
 final String router = tab_page;

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:hello_flutter/Home/layoutCase/buildingLayoutCase.dart';
-import 'package:hello_flutter/Home/layoutCase/pavlovaLayoutCase.dart';
-import 'package:hello_flutter/Home/layoutCase/containerLayoutCase.dart';
-import 'package:hello_flutter/Home/layoutCase/gridLayoutCase.dart';
-import 'package:hello_flutter/Home/layoutCase/listViewLayoutCase.dart';
-import 'package:hello_flutter/Home/layoutCase/stackLayoutCase.dart';
-import 'package:hello_flutter/Home/layoutCase/cardLayoutCase.dart';
-import 'package:hello_flutter/ExamplePage/sampleExample/AnimatedListSample.dart';
+import 'package:hello_flutter/hf_home/layoutCase/buildingLayoutCase.dart';
+import 'package:hello_flutter/hf_home/layoutCase/pavlovaLayoutCase.dart';
+import 'package:hello_flutter/hf_home/layoutCase/containerLayoutCase.dart';
+import 'package:hello_flutter/hf_home/layoutCase/gridLayoutCase.dart';
+import 'package:hello_flutter/hf_home/layoutCase/listViewLayoutCase.dart';
+import 'package:hello_flutter/hf_home/layoutCase/stackLayoutCase.dart';
+import 'package:hello_flutter/hf_home/layoutCase/cardLayoutCase.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/AnimatedListSample.dart';
 
 class HomePage extends StatefulWidget {
   @override

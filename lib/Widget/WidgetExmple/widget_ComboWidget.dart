@@ -50,6 +50,7 @@ class ComboWidgetCase extends StatelessWidget {
 }
 
 class UpdatedItemWidget extends StatelessWidget {
+
   final UpdateItemModel model;
   final VoidCallback onPressed;
 
@@ -123,7 +124,8 @@ class UpdatedItemWidget extends StatelessWidget {
                       child: Text('More',
                           style: TextStyle(
                               color: Colors.blue,
-                              backgroundColor: Colors.white)),
+                              backgroundColor: Colors.white),
+                          overflow: TextOverflow.fade),
                     ),
                   ),
                 ],
@@ -135,7 +137,11 @@ class UpdatedItemWidget extends StatelessWidget {
   }
 }
 
-/// 绘制图形
+
+
+
+
+/// ====== 绘制图形 ======
 
 class Cake extends StatelessWidget {
   @override

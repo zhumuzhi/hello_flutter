@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:hello_flutter/hf_home/HomePage.dart';
-import 'package:hello_flutter/hf_examplePage/ExamplePage.dart';
-import 'package:hello_flutter/hf_widget/WidgetPage.dart';
+import 'package:hello_flutter/hf_home/hf_homePage.dart';
+import 'package:hello_flutter/hf_examplePage/hf_examplePage.dart';
+import 'package:hello_flutter/hf_widget/hf_widgetPage.dart';
 
 class TabsPage extends StatefulWidget {
   TabsPage({Key key}) : super(key: key);

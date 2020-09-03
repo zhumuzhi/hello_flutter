@@ -4,6 +4,7 @@ import 'hf_widgetExmple/widget_ListView.dart';
 import 'hf_widgetExmple/widget_SingleChild.dart';
 import 'hf_widgetExmple/widget_Stack.dart';
 import 'hf_widgetExmple/widget_ComboWidget.dart';
+import 'hf_widgetExmple/widget_interactionSample.dart';
 
 
 class WidgetList extends StatelessWidget {
@@ -13,6 +14,7 @@ class WidgetList extends StatelessWidget {
     'multiChild',
     'stackWidget',
     'comboWidget',
+    'interaciton',
     'OtherView'
   ];
 
@@ -71,7 +73,10 @@ class _ListItem extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => ComboWidgetCase()));
             }
 
-
+            if ('$title'.toString() == 'interaciton') {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => InteractionSample()));
+            }
           }),
     );
   }

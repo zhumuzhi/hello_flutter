@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-
 /// Widget组装
 
 class UpdateItemModel {
@@ -49,12 +48,18 @@ class ComboWidgetCase extends StatelessWidget {
   }
 }
 
-class UpdatedItemWidget extends StatelessWidget {
-
+class UpdatedItemWidget extends StatefulWidget {
   final UpdateItemModel model;
   final VoidCallback onPressed;
 
   UpdatedItemWidget({Key key, this.model, this.onPressed}) : super(key: key);
+
+  @override
+  _UpdatedItemWidgetState createState() => _UpdatedItemWidgetState();
+}
+
+class _UpdatedItemWidgetState extends State<UpdatedItemWidget> {
+  bool isExpend = false;
 
   @override
   Widget build(BuildContext context) {
@@ -70,17 +75,18 @@ class UpdatedItemWidget extends StatelessWidget {
             padding: EdgeInsets.all(10),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(model.appIcon, width: 80, height: 80))),
+                child:
+                    Image.asset(widget.model.appIcon, width: 80, height: 80))),
         Expanded(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(model.appName,
+            Text(widget.model.appName,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 20.0, color: Color(0xFF8E8D92))),
-            Text("${model.appDate}",
+            Text("${widget.model.appDate}",
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(fontSize: 16.0, color: Color(0xFF8E8D92))),
@@ -97,7 +103,7 @@ class UpdatedItemWidget extends StatelessWidget {
             color: Color(0xFFF1F0F7),
             highlightColor: Colors.blue[700],
             colorBrightness: Brightness.dark,
-            onPressed: onPressed,
+            onPressed: widget.onPressed,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0)),
           ),
@@ -114,32 +120,36 @@ class UpdatedItemWidget extends StatelessWidget {
             children: <Widget>[
               Stack(
                 children: [
-                  Positioned(child: Text(model.appDescription, maxLines: 2)),
+                  Positioned(
+                      child: Text(widget.model.appDescription,
+                          maxLines: isExpend ? 4 : 2)),
                   Positioned(
                     right: -10.0,
-                    child: FlatButton(
-                      onPressed: () {
-                        print("点击了More按钮, 根据状态设置行高");
-                      },
-                      child: Text('More',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              backgroundColor: Colors.white),
-                          overflow: TextOverflow.fade),
-                    ),
+                    child: Visibility(
+                        visible: !this.isExpend, // 设置是否可见：true:可见 false:不可见
+                        child: FlatButton(
+                          onPressed: () {
+                            setState(() {
+                              this.isExpend = !isExpend;
+                            });
+                            print("点击了More按钮, 根据状态设置行高");
+                          },
+                          child: Text('More',
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  backgroundColor: Colors.white),
+                              overflow: TextOverflow.fade),
+                        )),
                   ),
                 ],
               ),
               Padding(
                   padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  child: Text("${model.appVersion} • ${model.appSize} MB"))
+                  child: Text(
+                      "${widget.model.appVersion} • ${widget.model.appSize} MB"))
             ]));
   }
 }
-
-
-
-
 
 /// ====== 绘制图形 ======
 

@@ -162,3 +162,8 @@ class MultipleTapGestureRecognizer extends TapGestureRecognizer {
     acceptGesture(pointer);
   }
 }
+
+
+
+
+

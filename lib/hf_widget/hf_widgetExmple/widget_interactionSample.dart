@@ -50,7 +50,7 @@ class ListenerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("指针事件")),
+        appBar: AppBar(title: Text("指针-Listener")),
         body: Listener(
           child: Container(
             color: Colors.red,
@@ -85,7 +85,7 @@ class _DragWidgetState extends State<DragWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("手势"),
+        title: Text("手势-GestureDetector"),
       ),
       body: Stack(
         children: <Widget>[

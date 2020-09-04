@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
 class InteractionSample extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(0, 44, 0, 34),
+        padding: EdgeInsets.fromLTRB(0, 0, 0, 34),
         child: DefaultTabController(
           length: 3,
           child: Scaffold(
-
             body: TabBarView(
               children: [
                 ListenerWidget(),
@@ -20,21 +18,21 @@ class InteractionSample extends StatelessWidget {
                 DoubleGestureWidget(),
               ],
             ),
-
-            bottomNavigationBar: TabBar(tabs: [
-              Tab(
-                icon: Icon(Icons.home),
-                text: "指针事件",
-              ),
-              Tab(
-                icon: Icon(Icons.rss_feed),
-                text: "手势",
-              ),
-              Tab(
-                icon: Icon(Icons.perm_identity),
-                text: "手势冲突",
-              ),
-            ],
+            bottomNavigationBar: TabBar(
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.home),
+                  text: "指针事件",
+                ),
+                Tab(
+                  icon: Icon(Icons.rss_feed),
+                  text: "手势",
+                ),
+                Tab(
+                  icon: Icon(Icons.perm_identity),
+                  text: "手势冲突",
+                ),
+              ],
               unselectedLabelColor: Colors.blueGrey,
               labelColor: Colors.blue,
               indicatorColor: Colors.red,
@@ -46,30 +44,33 @@ class InteractionSample extends StatelessWidget {
   }
 }
 
+/// ===== 指针事件 =====
 
 class ListenerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(title: Text("指针事件")),
         body: Listener(
-        child: Container(
-          color: Colors.red,
-          width: 300,
-          height: 300,
-      ),
-      onPointerDown: (event) {
-        print("down $event");
-      },
-      onPointerMove: (event) {
-        print("move $event");
-      },
-      onPointerUp: (event) {
-        print("up $event");
-      },
-    ));
+          child: Container(
+            color: Colors.red,
+            width: 300,
+            height: 300,
+          ),
+          onPointerDown: (event) {
+            print("down $event");
+          },
+          onPointerMove: (event) {
+            print("move $event");
+          },
+          onPointerUp: (event) {
+            print("up $event");
+          },
+        ));
   }
 }
 
+/// ===== 手势 =====
 
 class DragWidget extends StatefulWidget {
   @override
@@ -84,7 +85,7 @@ class _DragWidgetState extends State<DragWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Demo"),
+        title: Text("手势"),
       ),
       body: Stack(
         children: <Widget>[
@@ -119,17 +120,22 @@ class _DragWidgetState extends State<DragWidget> {
   }
 }
 
+/// ===== 手势冲突 =====
+
 class DoubleGestureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+        appBar: AppBar(
+          title: Text("手势冲突"),
+        ),
         body: RawGestureDetector(
           gestures: {
             MultipleTapGestureRecognizer: GestureRecognizerFactoryWithHandlers<
                 MultipleTapGestureRecognizer>(
-                  () => MultipleTapGestureRecognizer(),
-                  (MultipleTapGestureRecognizer instance) {
+              () => MultipleTapGestureRecognizer(),
+              (MultipleTapGestureRecognizer instance) {
                 instance.onTap = () => print('parent tapped ');
               },
             )
@@ -146,12 +152,9 @@ class DoubleGestureWidget extends StatelessWidget {
                   )),
             ),
           ),
-        )
-    );
+        ));
   }
-
 }
-
 
 class MultipleTapGestureRecognizer extends TapGestureRecognizer {
   @override

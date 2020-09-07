@@ -129,25 +129,18 @@ class PavlovaLayoutCase extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          margin: EdgeInsets.fromLTRB(0, 40, 0, 30),
-          height: 600,
-          child: Card(
-            child: Column(
-//              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 400,
-                  child: leftColumn,
-                ),
-                mianImage,
-              ],
-            ),
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
+          child: ListView(
+            children: <Widget>[
+              mianImage,
+              Container(
+                width: 400,
+                child: leftColumn,
+              ),
+            ],
           ),
         ),
       ),
     );
-
   }
 }
-
-

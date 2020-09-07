@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/hf_widget/hf_widgetExmple/widget_MultiChild.dart';
+import 'package:hello_flutter/hf_widget/hf_widgetExmple/widget_ScaffoldCase.dart';
 import 'hf_widgetExmple/widget_ListView.dart';
 import 'hf_widgetExmple/widget_SingleChild.dart';
 import 'hf_widgetExmple/widget_Stack.dart';
 import 'hf_widgetExmple/widget_ComboWidget.dart';
-import 'hf_widgetExmple/widget_interactionSample.dart';
+import 'hf_widgetExmple/widget_InteractionSample.dart';
 import 'hf_widgetExmple/widget_DataTransferCase.dart';
 
 
 class WidgetList extends StatelessWidget {
   final List<String> titleList = <String>[
-    'ListView',
+    'scaffoldCase',
+    'listView',
     'singleChild',
     'multiChild',
     'stackWidget',
@@ -50,7 +52,12 @@ class _ListItem extends StatelessWidget {
           onTap: () {
             print('点击了 $title Item');
 
-            if ('$title'.toString() == 'ListView') {
+            if ('$title'.toString() == 'scaffoldCase') {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ScaffoldCase()));
+            }
+
+            if ('$title'.toString() == 'listView') {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ListViewWidget()));
             }

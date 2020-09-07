@@ -5,6 +5,7 @@ import 'hf_widgetExmple/widget_SingleChild.dart';
 import 'hf_widgetExmple/widget_Stack.dart';
 import 'hf_widgetExmple/widget_ComboWidget.dart';
 import 'hf_widgetExmple/widget_interactionSample.dart';
+import 'hf_widgetExmple/widget_DataTransferCase.dart';
 
 
 class WidgetList extends StatelessWidget {
@@ -15,6 +16,7 @@ class WidgetList extends StatelessWidget {
     'stackWidget',
     'comboWidget',
     'interaciton',
+    'dataTransfer',
     'OtherView'
   ];
 
@@ -77,6 +79,12 @@ class _ListItem extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => InteractionSample()));
             }
+
+            if ('$title'.toString() == 'dataTransfer') {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => DataTransferCase()));
+            }
+
           }),
     );
   }

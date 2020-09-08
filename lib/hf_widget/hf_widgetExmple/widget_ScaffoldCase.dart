@@ -23,10 +23,6 @@ class _ScaffoldCaseState extends State<ScaffoldCase> with SingleTickerProviderSt
     });
   }
 
-  void _onFabClick() {
-    print("------------ FloatingActionButton Click ------------");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,56 +1,95 @@
 import 'package:flutter/material.dart';
 
-class ScaffoldCase extends StatelessWidget {
+class ScaffoldCase extends StatefulWidget {
+  @override
+  _ScaffoldCaseState createState() => _ScaffoldCaseState();
+}
+
+class _ScaffoldCaseState extends State<ScaffoldCase> with SingleTickerProviderStateMixin{
+
+  int _currentBottomIndex = 0; // 底部tab索引
+  TabController _tabController;
+  List<String> topTabLists = ["Tab 1", "Tab 2",'Tab 3 '];
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: topTabLists.length, vsync: this);
+  }
+
+  void _onBottomTabChange(int index) {
+    setState(() {
+      _currentBottomIndex = index;
+    });
+  }
+
+  void _onFabClick() {
+    print("------------ FloatingActionButton Click ------------");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
         /// 应用栏
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          // backgroundColor: Colors.red,
           title: Text('标题', style: TextStyle(color: Colors.white)),
           centerTitle: true,
           elevation: 10.0,
-          leading: Icon(Icons.home),
-          actions: <Widget>[
-            Icon(Icons.add),
-          ],
-          bottom: PreferredSize(
-            child: Container(
-              height: 50.0,
-              child: Center(
-                child: Text("显示在标题下面的内容"),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.redAccent,
-              ),
-            ),
-            preferredSize: Size.fromHeight(50.0),
-          ),
-        ),
 
-        /// 内容区域
-        body: Center(
-          child: Container(
-              color: Colors.grey,
-              child: Text(
-                '中间内容部分',
-                style: TextStyle(color: Colors.red, fontSize: 36.0),
-              )),
+          // 左侧按钮
+          leading: GestureDetector(child: Icon(Icons.print), onTap: (){
+            print('点击左侧定义按钮');
+          },),
+
+          // 右侧按钮
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.message),
+                onPressed: () {
+                  print('点击右侧自定按钮1');
+                }),
+            IconButton(
+                icon: Icon(Icons.access_alarm),
+                onPressed: () {
+                  print('点击右侧自定按钮2');
+                }),
+            PopupMenuButton(
+              onSelected: (String value) {
+                print("----------$value");
+              },
+              itemBuilder: (BuildContext context) => [
+                new PopupMenuItem(value: "选项一的内容", child: new Text("选项一")),
+                new PopupMenuItem(value: "选项二的内容", child: new Text("选项二")),
+                new PopupMenuItem(value: "选项三的内容", child: new Text("选项三")),
+              ],
+            )
+          ],
+
+          //标题下内容
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: topTabLists
+            .map((e) => Tab(
+              text: e,
+              icon: Icon(Icons.print),
+            )).toList(),
+          ),
         ),
 
         /// 侧边栏
-        drawer: Drawer(
-          child: Center(
-            child: Container(
-              width: 150.0,
-              color: Colors.orange,
-              child: Text(
-                '侧边栏',
-                style: TextStyle(color: Colors.white, fontSize: 24.0),
-              ),
-            ),
-          ),
+        endDrawer: MyDrawer(),
+
+        /// 内容区域
+        body: TabBarView(
+          controller: _tabController,
+          children: topTabLists.map((item) {
+            return Container(
+              alignment: Alignment.center,
+              child: Text(item),
+            );
+          }).toList(),
         ),
 
         ///底部 持久化按钮
@@ -64,8 +103,8 @@ class ScaffoldCase extends StatelessWidget {
 
         ///底部 导航按钮
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 1,
-          fixedColor: Colors.redAccent,
+          //不设置该属性多于三个不显示颜色
+          type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -80,6 +119,9 @@ class ScaffoldCase extends StatelessWidget {
               title: Text('我的'),
             ),
           ],
+          currentIndex: _currentBottomIndex,
+          fixedColor: Colors.redAccent,
+          onTap: (index) => _onBottomTabChange(index),
         ),
 
         ///底部 FAB按钮
@@ -100,6 +142,59 @@ class ScaffoldCase extends StatelessWidget {
             },
           );
         })
+
     );
+  }
+}
+
+
+class MyDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 88.0, bottom: 30.0),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: ClipOval(
+                      child: Image(image: AssetImage("assets/images/google.png"),width: 60,),
+                    ),
+                  ),
+                  Text(
+                    "抽屉栏",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    leading: const Icon(Icons.settings),
+                    title: const Text('个人设置'),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.live_help),
+                    title: const Text('帮助说明'),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.settings),
+                    title: const Text('个人设置'),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.live_help),
+                    title: const Text('帮助说明'),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }

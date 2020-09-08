@@ -42,6 +42,8 @@ class InteractionSample extends StatelessWidget {
       ),
     );
   }
+
+  InteractionSample();
 }
 
 /// ===== 指针事件 =====

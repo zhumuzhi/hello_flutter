@@ -7,11 +7,13 @@ import 'hf_widgetExmple/widget_Stack.dart';
 import 'hf_widgetExmple/widget_ComboWidget.dart';
 import 'hf_widgetExmple/widget_InteractionSample.dart';
 import 'hf_widgetExmple/widget_DataTransferCase.dart';
+import 'hf_widgetExmple/widget_TabBarCase.dart';
 
 
 class WidgetList extends StatelessWidget {
   final List<String> titleList = <String>[
     'scaffoldCase',
+    'tabBarCase',
     'listView',
     'singleChild',
     'multiChild',
@@ -90,6 +92,11 @@ class _ListItem extends StatelessWidget {
             if ('$title'.toString() == 'dataTransfer') {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => DataTransferCase()));
+            }
+
+            if ('$title'.toString() == 'tabBarCase') {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => TabBarCase()));
             }
 
           }),

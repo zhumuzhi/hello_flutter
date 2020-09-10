@@ -135,11 +135,13 @@ class _NotificationCaseState extends State<NotificationCase> {
               _msg += notification.msg + " ";
             });
           },
-          child: Container(
-            color: Colors.grey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[Text(_msg,style: TextStyle(color: Colors.white),), CustomChild()],
+          child: Center(
+            child: Container(
+              color: Colors.grey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[Text(_msg , style: TextStyle(color: Colors.white, fontSize: 30), ), CustomChild()],
+              ),
             ),
           ),
         ),

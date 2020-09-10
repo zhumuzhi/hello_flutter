@@ -13,8 +13,8 @@ class DataTransferCase extends StatelessWidget {
             body: TabBarView(
               children: [
                 CounterPage(),
-                Container(child: Text('Notification')),
-                Container(child: Text('EventBus')),
+                NotificationCase(),
+                Container(child: Text("EventBus")),
               ],
             ),
             bottomNavigationBar: TabBar(
@@ -106,7 +106,7 @@ class Counter extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("InheritedWidget demo")),
       body: Text(
-        'You have pushed the button this many times: ${state.count}',
+        "You have pushed the button this many times: ${state.count}",
       ),
     );
   }
@@ -115,6 +115,55 @@ class Counter extends StatelessWidget {
 
 
 /// ============== Notification ==============
+
+class NotificationCase extends StatefulWidget {
+  @override
+  _NotificationCaseState createState() => _NotificationCaseState();
+}
+
+class _NotificationCaseState extends State<NotificationCase> {
+  String _msg = "通知";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("NotificationCase")),
+      body: Container(
+        child: NotificationListener<CustomNotification>(
+          onNotification: (notification) {
+            setState(() {
+              _msg += notification.msg + " ";
+            });
+          },
+          child: Container(
+            color: Colors.grey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[Text(_msg,style: TextStyle(color: Colors.white),), CustomChild()],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomNotification extends Notification {
+  final String msg;
+  CustomNotification(this.msg);
+}
+
+class CustomChild extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      onPressed: ()=> CustomNotification("Hi").dispatch(context),
+      child: Text("Fire Notification"),
+    );
+  }
+
+}
 
 
 

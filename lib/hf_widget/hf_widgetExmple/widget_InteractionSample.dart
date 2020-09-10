@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
+/// 交互事件案例
+
 class InteractionSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

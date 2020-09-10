@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+/// TabBar案例
 
 class TabBarCase extends StatefulWidget {
   @override

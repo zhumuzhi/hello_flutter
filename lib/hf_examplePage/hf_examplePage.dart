@@ -5,6 +5,7 @@ import 'package:hello_flutter/hf_examplePage/sampleExample/BaseAppBarSample.dart
 import 'package:hello_flutter/hf_examplePage/sampleExample/ExpansionTileSample.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/TabbedAppBarSample.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/InteractionSample.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/Example_LoginPage.dart';
 
 class ExamplePage extends StatefulWidget {
   @override
@@ -26,6 +27,8 @@ class _ExamplePageState extends State<ExamplePage> {
     'ExpansionTileSample',
     'TabbedAppBarSample',
     'InteractionSample',
+    'LoginPage',
+
   ];
   final List<int> colorCodes = <int>[
     100,
@@ -69,36 +72,49 @@ class ListItem extends StatelessWidget {
       child: new ListTile(
         title: new Text('$title'),
         onTap: () {
+
           if ('$title'.toString() == 'AppBarBottomSample') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
                     builder: (context) => new AppBarBottomSample()));
           }
+
           if ('$title'.toString() == 'BaseAppBarSample') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
                     builder: (context) => new BasicAppBarSample()));
           }
+
           if ('$title'.toString() == 'ExpansionTileSample') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
                     builder: (context) => new ExpansionTileSample()));
           }
+
           if ('$title'.toString() == 'TabbedAppBarSample') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
                     builder: (context) => new TabbedAppBarSample()));
           }
+
           if ('$title'.toString() == 'InteractionSample') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
                     builder: (context) => new TapboxASample()));
           }
+
+          if ('$title'.toString() == 'LoginPage') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new LoginPage()));
+          }
+
         },
       ),
     );

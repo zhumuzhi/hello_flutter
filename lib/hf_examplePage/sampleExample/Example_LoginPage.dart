@@ -29,12 +29,12 @@ enum loginPageActionType {
   appleID
 }
 
-class loginPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
   _loginPageState createState() => _loginPageState();
 }
 
-class _loginPageState extends State<loginPage> {
+class _loginPageState extends State<LoginPage> {
 
   final _textEditingController = TextEditingController();
   var _mockCode = "A R 5 X";
@@ -57,7 +57,7 @@ class _loginPageState extends State<loginPage> {
       body: ListView(
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
-
+            _topMenu(),
         ],
       ),
     );
@@ -82,7 +82,7 @@ class _loginPageState extends State<loginPage> {
           InkWell(
             splashColor: Colors.white,
             onTap: () => _onClickButton(loginPageActionType.topClose),
-            child: Image.asset('', scale: 2),
+            child: Image.asset('asset/images/login/common_close', scale: 2),
           ),
           InkWell(
             splashColor: Colors.white,

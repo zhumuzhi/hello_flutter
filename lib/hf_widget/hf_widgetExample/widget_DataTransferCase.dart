@@ -61,11 +61,11 @@ class CounterPage extends StatefulWidget {
 class _CounterPageState extends State<CounterPage> {
   int count = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      count++;
-    });
-  }
+  // void _incrementCounter() {
+  //   setState(() {
+  //     count++;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -129,11 +129,13 @@ class _NotificationCaseState extends State<NotificationCase> {
       appBar: AppBar(title: Text("NotificationCase")),
       body: Container(
         child: NotificationListener<CustomNotification>(
+
           onNotification: (notification) {
             setState(() {
               _msg += notification.msg + " ";
             });
           },
+
           child: Center(
             child: Container(
               color: Colors.grey,

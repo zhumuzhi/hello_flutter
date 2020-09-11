@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/hf_widget/hf_widgetExmple/widget_MultiChild.dart';
-import 'package:hello_flutter/hf_widget/hf_widgetExmple/widget_ScaffoldCase.dart';
-import 'hf_widgetExmple/widget_ListView.dart';
-import 'hf_widgetExmple/widget_SingleChild.dart';
-import 'hf_widgetExmple/widget_Stack.dart';
-import 'hf_widgetExmple/widget_ComboWidget.dart';
-import 'hf_widgetExmple/widget_InteractionSample.dart';
-import 'hf_widgetExmple/widget_DataTransferCase.dart';
-import 'hf_widgetExmple/widget_TabBarCase.dart';
+import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_BaseWidgetList.dart';
+import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_MultiChild.dart';
+import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_SingleChild.dart';
+import 'hf_widgetExample/widget_ComboWidget.dart';
+import 'hf_widgetExample/widget_InteractionSample.dart';
+import 'hf_widgetExample/widget_DataTransferCase.dart';
 
 
 class WidgetList extends StatelessWidget {
   final List<String> titleList = <String>[
-    'scaffoldCase',
-    'tabBarCase',
-    'listView',
+    'BaseWidgetList',
     'singleChild',
     'multiChild',
-    'stackWidget',
     'comboWidget',
-    'interaciton',
+    'interaction',
     'dataTransfer',
     'OtherView'
   ];
@@ -54,14 +48,9 @@ class _ListItem extends StatelessWidget {
           onTap: () {
             print('点击了 $title Item');
 
-            if ('$title'.toString() == 'scaffoldCase') {
+            if ('$title'.toString() == 'BaseWidgetList') {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ScaffoldCase()));
-            }
-
-            if ('$title'.toString() == 'listView') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ListViewWidget()));
+                  MaterialPageRoute(builder: (context) => BaseWidgetList()));
             }
 
             if ('$title'.toString() == 'singleChild') {
@@ -74,17 +63,12 @@ class _ListItem extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => MultiChildCase()));
             }
 
-            if ('$title'.toString() == 'stackWidget') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => StackWidgetCase()));
-            }
-
             if ('$title'.toString() == 'comboWidget') {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ComboWidgetCase()));
             }
 
-            if ('$title'.toString() == 'interaciton') {
+            if ('$title'.toString() == 'interaction') {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => InteractionSample()));
             }
@@ -92,11 +76,6 @@ class _ListItem extends StatelessWidget {
             if ('$title'.toString() == 'dataTransfer') {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => DataTransferCase()));
-            }
-
-            if ('$title'.toString() == 'tabBarCase') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TabBarCase()));
             }
 
           }),

@@ -140,7 +140,7 @@ class DoubleGestureWidget extends StatelessWidget {
                 MultipleTapGestureRecognizer>(
               () => MultipleTapGestureRecognizer(),
               (MultipleTapGestureRecognizer instance) {
-                instance.onTap = () => print('parent tapped ');
+                instance.onTap = () => print('parent tapped');
               },
             )
           },

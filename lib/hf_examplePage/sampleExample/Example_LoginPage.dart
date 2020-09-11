@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 // import 'package:fluttertoast/fluttertoast.dart' as Toast;
 
 // 左右边距
@@ -46,6 +47,12 @@ class _loginPageState extends State<LoginPage> {
   /// Init
 
   @override
+  void dispose() {
+    super.dispose();
+    FocusScope.of(context).requestFocus(FocusNode());
+  }
+
+  @override
   void initState() {
     super.initState();
 
@@ -57,7 +64,12 @@ class _loginPageState extends State<LoginPage> {
       body: ListView(
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
-            _topMenu(),
+          _topMenu(),
+          _logoImage(),
+          _phoneNum(),
+          _password(),
+          _verifyCode(),
+
         ],
       ),
     );
@@ -94,7 +106,120 @@ class _loginPageState extends State<LoginPage> {
     );
   }
 
+  Widget _logoImage() {
+    return Container(
+      alignment: Alignment.topCenter,
+      child: Image.asset('assets/images/login/login_logo.png',scale: 2),
+    );
+  }
 
+  Widget _phoneNum() {
+    return Container(
+      margin: EdgeInsets.only(left: kHorizontalMargin, top: 20, right: kHorizontalMargin),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(width: 1,color: Colors.grey[400]))
+      ),
+      child: TextField(
+        // controller: _textEditingController,
+        decoration: InputDecoration(
+          hintText: "请您输入账号或手机号",
+          border: InputBorder.none,
+        ),
+      ),
+    );
+  }
+
+  Widget _password() {
+    return Container(
+      margin: EdgeInsets.only(left: kHorizontalMargin, top: 20, right: kHorizontalMargin),
+      decoration: BoxDecoration(
+          border:
+              Border(bottom: BorderSide(width: 1, color: Colors.grey[400]))),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: "请输入密码",
+            border: InputBorder.none,
+            suffix: Container(
+              width: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  InkWell(
+                    splashColor: Colors.white,
+                    child: Container(
+                      padding: EdgeInsets.only(right: 5),
+                      child: Image.asset(
+                        'assets/images/login/${_isShowPWD ? 'eye1' : 'eye2'}.png',
+                        scale: 2,
+                        width: 20,
+                        height: 20,
+                      ),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        _isShowPWD = !_isShowPWD;
+                      });
+                    },
+                  ),
+                  Container(
+                    height: 15,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey[400], width: 1),
+                    ),
+                  ),
+                  InkWell(
+                    splashColor: Colors.white,
+                    child: Container(
+                      padding: EdgeInsets.only(left: 12),
+                      child: Text("忘记密码"),
+                    ),
+                    onTap: () => _onClickButton(loginPageActionType.forgetPwd),
+                  ),
+                ],
+              ),
+            )),
+        obscureText: _isShowPWD,
+      ),
+    );
+  }
+
+  // 验证码
+  Widget _verifyCode() {
+    return Container(
+      margin: EdgeInsets.only(left: kHorizontalMargin, top: 20, right: kHorizontalMargin),
+      decoration: BoxDecoration(
+          border: Border(bottom: BorderSide(color: Colors.grey[400], width: 1))
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: '请输入验证码',
+            border: InputBorder.none,
+            suffixIcon: InkWell(
+              splashColor: Colors.white,
+              child: Container(
+                  margin: EdgeInsets.only(top: 10, bottom: 10),
+                  width: 100,
+                  height: 30,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey[300], width: 1)
+                  ),
+                  child: Text(_mockCode, style: TextStyle(fontSize: 22, color: Colors.orange))
+              ),
+              onTap: () {
+                setState(() {
+                  var str = '';
+                  for (var i = 0; i < 4; i++) {
+                    str = str + _alphabet[Random().nextInt(_alphabet.length)];
+                  }
+                  _mockCode = str;
+                });
+              },
+            )
+        ),
+      ),
+    );
+  }
 
 
 }

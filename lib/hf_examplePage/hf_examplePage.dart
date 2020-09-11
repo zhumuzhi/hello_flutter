@@ -5,6 +5,7 @@ import 'package:hello_flutter/hf_examplePage/sampleExample/BaseAppBarSample.dart
 import 'package:hello_flutter/hf_examplePage/sampleExample/ExpansionTileSample.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/TabbedAppBarSample.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/InteractionSample.dart';
+
 import 'package:hello_flutter/hf_examplePage/sampleExample/Example_LoginPage.dart';
 
 class ExamplePage extends StatefulWidget {
@@ -36,6 +37,7 @@ class _ExamplePageState extends State<ExamplePage> {
     300,
     400,
     500,
+    600
   ];
 
   @override

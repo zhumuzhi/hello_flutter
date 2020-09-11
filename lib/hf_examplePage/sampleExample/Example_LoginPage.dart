@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart' as Toast;
+// import 'package:fluttertoast/fluttertoast.dart' as Toast;
 
 // 左右边距
 const kHorizontalMargin = 25.0;
@@ -36,7 +36,7 @@ class LoginPage extends StatefulWidget {
 
 class _loginPageState extends State<LoginPage> {
 
-  final _textEditingController = TextEditingController();
+  // final _textEditingController = TextEditingController();
   var _mockCode = "A R 5 X";
   var _isSelectedProtocol = false;
   var _isShowPWD = false;

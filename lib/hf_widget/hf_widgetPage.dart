@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:hello_flutter/Support/define/define.dart';
+
 import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_BaseWidgetList.dart';
 import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_MultiChild.dart';
 import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_SingleChild.dart';
@@ -42,7 +45,7 @@ class _ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      color: randomColor(),
       child: ListTile(
           title: Text('$title'),
           onTap: () {

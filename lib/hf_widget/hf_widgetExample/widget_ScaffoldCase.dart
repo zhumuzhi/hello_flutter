@@ -35,8 +35,9 @@ class _ScaffoldCaseState extends State<ScaffoldCase> with SingleTickerProviderSt
           elevation: 10.0,
 
           // 左侧按钮
-          leading: GestureDetector(child: Icon(Icons.print), onTap: (){
+          leading: GestureDetector(child: Icon(Icons.backspace), onTap: (){
             print('点击左侧定义按钮');
+            Navigator.pop(context);
           },),
 
           // 右侧按钮

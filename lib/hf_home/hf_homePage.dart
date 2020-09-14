@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/Router/RouterPath.dart';
 
 import 'package:hello_flutter/hf_home/layoutCase/buildingLayoutCase.dart';
 import 'package:hello_flutter/hf_home/layoutCase/pavlovaLayoutCase.dart';
@@ -82,11 +83,14 @@ class ListItem extends StatelessWidget {
         title: new Text('$title'),
         onTap: () {
           if ('$title'.toString() == 'Oeschinen') {
-            Navigator.push(
-              context,
-              new MaterialPageRoute(
-                  builder: (context) => new BuildingLayoutCase()),
-            );
+
+            Navigator.pushNamed(context, buildLayout_page);
+
+            // Navigator.push(
+            //   context,
+            //   new MaterialPageRoute(
+            //       builder: (context) => new BuildingLayoutCase()),
+            // );
           }
 
           if ('$title'.toString() == 'Pavlova') {

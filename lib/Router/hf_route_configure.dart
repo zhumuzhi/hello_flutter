@@ -9,20 +9,8 @@ import 'package:hello_flutter/hf_home/layoutCase/stackLayoutPage.dart';
 import 'package:hello_flutter/hf_home/layoutCase/cardLayoutPage.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/AnimatedListSample.dart';
 
-enum HFPageRouteType {
-  fade,
-  rightToLeft,
-  leftToRight,
-  upToDown,
-  downToUp,
-  scale,
-  rotate,
-  size,
-  rightToLeftWithFade,
-  leftToRightWithFade,
-  cupertino,
-  none,
-}
+import 'package:hello_flutter/Router/hf_custom_router.dart';
+
 
 typedef HFRouteResultBuilder = HFRouteResult Function(Object);
 
@@ -52,18 +40,44 @@ class HFAppRouteConfigure {
 
   //统一路由配置
   static Map<String, HFRouteResultBuilder> routeMap = {
-    buildLayoutPage: (arguments) => HFRouteResult(widget: BuildingLayoutPage())
-    // cardLayoutPage: (argumnets) {
-    //   HFRouteResult（widget: cardl）
-    // }
-// cardLayoutPage
-// containerPage
-// gridLayoutPage
-// listViewPage
-// pavlovaCasePage
-// stackLayoutPage
-
+    buildLayoutPage: (arguments) => HFRouteResult(widget: BuildingLayoutPage()),
+    cardLayoutPage: (arguments) => HFRouteResult(widget: CardLayoutPage()),
+    containerPage: (arguments) => HFRouteResult(widget: ContainerLayoutPage()),
+    gridLayoutPage: (arguments) => HFRouteResult(widget: GridLayoutPage()),
+    listViewPage: (arguments) => HFRouteResult(widget: ListViewPage()),
+    pavlovaCasePage: (arguments) => HFRouteResult(widget: PavlovaLayoutPage()),
+    stackLayoutPage: (arguments) => HFRouteResult(widget: StackLayoutPage()),
   };
+
+  static Route routeConfigureHandler(RouteSettings routeSettings) {
+
+    HFRouteResult routeResult = routeMap[routeSettings.name](routeSettings.arguments);
+
+    HFRouteSettings newRouteSettings = HFRouteSettings(
+      arguments: routeSettings.arguments,
+      name: routeSettings.name,
+      title: routeResult.title,
+      routeName: routeResult.routeName,
+      showStatusBar: routeResult.showStatusBar,
+    );
+
+    Widget page = routeResult.widget ?? NoRoute();
+
+    return  HFCustomPageRoute(
+      settings: newRouteSettings,
+      page: page,
+      title: newRouteSettings.title,
+      transition: routeResult.pageRouteType,
+      opaque: false,
+      transitionDuration: routeResult.pageRouteType == HFPageRouteType.downToUp ? Duration(milliseconds: 300) : Duration(milliseconds: 400),
+      popGesture: (routeResult.pageRouteType == HFPageRouteType.cupertino || routeResult.pageRouteType == HFPageRouteType.rightToLeft) ? true : false,
+        fullscreenDialog: routeResult.pageRouteType == HFPageRouteType.downToUp
+
+    );
+
+  }
+
+
 }
 
 
@@ -109,4 +123,19 @@ class NoRoute extends StatelessWidget {
       ),
     );
   }
+}
+
+class HFRouteSettings extends RouteSettings {
+  final String routeName;
+  final String title;
+  final bool showStatusBar;
+
+  const HFRouteSettings ({
+    this.routeName,
+    this.title,
+    this.showStatusBar,
+    String name,
+    bool isInitialRoute = false,
+    Object arguments,
+  }) : super(name: name, arguments: arguments);
 }

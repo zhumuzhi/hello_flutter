@@ -123,7 +123,7 @@ class ListItem extends StatelessWidget {
 
           if ('$title'.toString() == 'stackCase') {
             Navigator.push(context,
-                new MaterialPageRoute(builder: (context) => new StackPage()));
+                new MaterialPageRoute(builder: (context) => new StackLayoutPage()));
           }
 
           if ('$title'.toString() == 'cardLayoutCase') {

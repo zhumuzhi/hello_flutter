@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class StackCase extends StatelessWidget {
+class StackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 

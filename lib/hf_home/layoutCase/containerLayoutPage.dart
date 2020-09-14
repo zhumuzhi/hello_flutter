@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ContainerCase extends StatelessWidget {
+class ContainerLayoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

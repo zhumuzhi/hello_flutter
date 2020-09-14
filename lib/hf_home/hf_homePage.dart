@@ -97,38 +97,38 @@ class ListItem extends StatelessWidget {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new PavlovaLayoutCase()));
+                    builder: (context) => new PavlovaLayoutPage()));
           }
 
           if ('$title'.toString() == 'containerCase') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new ContainerCase()));
+                    builder: (context) => new ContainerLayoutPage()));
           }
 
           if ('$title'.toString() == 'gridLayoutCase') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new GridLayoutCase()));
+                    builder: (context) => new GridLayoutPage()));
           }
 
           if ('$title'.toString() == 'listViewCase') {
             Navigator.push(
                 context,
                 new MaterialPageRoute(
-                    builder: (context) => new ListViewCase()));
+                    builder: (context) => new ListViewPage()));
           }
 
           if ('$title'.toString() == 'stackCase') {
             Navigator.push(context,
-                new MaterialPageRoute(builder: (context) => new StackCase()));
+                new MaterialPageRoute(builder: (context) => new StackPage()));
           }
 
           if ('$title'.toString() == 'cardLayoutCase') {
             Navigator.push(context,
-                new MaterialPageRoute(builder: (context) => new CardCase()));
+                new MaterialPageRoute(builder: (context) => new CardLayoutPage()));
           }
 
           if ('$title'.toString() == 'animatedListCase') {

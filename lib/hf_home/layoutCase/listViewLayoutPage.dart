@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class ListViewCase extends StatelessWidget {
+class ListViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
       return Scaffold(

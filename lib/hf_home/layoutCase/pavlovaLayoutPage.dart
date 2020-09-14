@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PavlovaLayoutCase extends StatelessWidget {
+class PavlovaLayoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

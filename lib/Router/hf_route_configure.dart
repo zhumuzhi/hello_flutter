@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:hello_flutter/hf_home/layoutCase/buildingLayoutCase.dart';
-import 'package:hello_flutter/hf_home/layoutCase/pavlovaLayoutCase.dart';
-import 'package:hello_flutter/hf_home/layoutCase/containerLayoutCase.dart';
-import 'package:hello_flutter/hf_home/layoutCase/gridLayoutCase.dart';
-import 'package:hello_flutter/hf_home/layoutCase/listViewLayoutCase.dart';
-import 'package:hello_flutter/hf_home/layoutCase/stackLayoutCase.dart';
-import 'package:hello_flutter/hf_home/layoutCase/cardLayoutCase.dart';
+import 'package:hello_flutter/hf_home/layoutCase/buildingLayoutPage.dart';
+import 'package:hello_flutter/hf_home/layoutCase/pavlovaLayoutPage.dart';
+import 'package:hello_flutter/hf_home/layoutCase/containerLayoutPage.dart';
+import 'package:hello_flutter/hf_home/layoutCase/gridLayoutPage.dart';
+import 'package:hello_flutter/hf_home/layoutCase/listViewLayoutPage.dart';
+import 'package:hello_flutter/hf_home/layoutCase/stackLayoutPage.dart';
+import 'package:hello_flutter/hf_home/layoutCase/cardLayoutPage.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/AnimatedListSample.dart';
 
 enum HFPageRouteType {
@@ -52,8 +52,10 @@ class HFAppRouteConfigure {
 
   //统一路由配置
   static Map<String, HFRouteResultBuilder> routeMap = {
-    buildLayoutPage: (arguments) => HFRouteResult(widget: BuildingLayoutCase())
-
+    buildLayoutPage: (arguments) => HFRouteResult(widget: BuildingLayoutPage())
+    // cardLayoutPage: (argumnets) {
+    //   HFRouteResult（widget: cardl）
+    // }
 // cardLayoutPage
 // containerPage
 // gridLayoutPage
@@ -91,6 +93,7 @@ class HFRouteResult {
     this.description = '',
   });
 }
+
 
 class NoRoute extends StatelessWidget {
   @override

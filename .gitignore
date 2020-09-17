@@ -15,10 +15,8 @@
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Visual Studio Code related
+.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -30,6 +28,56 @@
 .pub/
 /build/
 
+# Android related
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+
+# iOS/XCode related
+#这里注意下面的 官方的是**/ios这里需要修改成**/.ios
+**/.ios/**/*.mode1v3
+**/.ios/**/*.mode2v3
+**/.ios/**/*.moved-aside
+**/.ios/**/*.pbxuser
+**/.ios/**/*.perspectivev3
+**/.ios/**/*sync/
+**/.ios/**/.sconsign.dblite
+**/.ios/**/.tags*
+**/.ios/**/.vagrant/
+**/.ios/**/DerivedData/
+**/.ios/**/Icon?
+**/.ios/**/Pods/
+**/.ios/**/.symlinks/
+**/.ios/**/profile
+**/.ios/**/xcuserdata
+**/.ios/.generated/
+**/.ios/Flutter/App.framework
+**/.ios/Flutter/Flutter.framework
+# 这里官方的还是**/.ios/Flutter/Flutter.framework，但是真实的路径已经变了，所以这里也要修改
+**/.ios/Flutter/engine/Flutter.framework
+**/.ios/Flutter/Generated.xcconfig
+**/.ios/Flutter/app.flx
+**/.ios/Flutter/app.zip
+**/.ios/Flutter/flutter_assets/
+**/.ios/ServiceDefinitions.json
+**/.ios/Runner/GeneratedPluginRegistrant.*
+**/.ios/Flutter/flutter_export_environment.sh
+# 这两个编译产生的文件也忽略掉
+**/.ios/Runner.xcworkspace/xcshareddata
+**.ios/Runner.xcworkspace/xcuserdata
+**/.ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/
+
+# Exceptions to above rules.
+!**/ios/**/default.mode1v3
+!**/ios/**/default.mode2v3
+!**/ios/**/default.pbxuser
+!**/ios/**/default.perspectivev3
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
 # Web related
 lib/generated_plugin_registrant.dart
 
@@ -39,5 +87,3 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Exceptions to above rules.
-!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages

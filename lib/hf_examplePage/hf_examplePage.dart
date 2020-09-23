@@ -8,6 +8,7 @@ import 'package:hello_flutter/hf_examplePage/sampleExample/InteractionSample.dar
 
 import 'package:hello_flutter/hf_examplePage/sampleExample/Example_LoginPage.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/Example_RouteSample.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/OrderHeaderSample.dart';
 
 class ExamplePage extends StatefulWidget {
   @override
@@ -30,7 +31,9 @@ class _ExamplePageState extends State<ExamplePage> {
     'TabbedAppBarSample',
     'InteractionSample',
     'LoginPage',
-    'RouteSample'
+    'RouteSample',
+    'OrderPage'
+
 
   ];
   final List<int> colorCodes = <int>[
@@ -126,6 +129,15 @@ class ListItem extends StatelessWidget {
                 new MaterialPageRoute(
                     builder: (context) => new RouteSample()));
           }
+
+          if ('$title'.toString() == 'OrderPage') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => new OrderHeaderPage()));
+          }
+
+
 
         },
       ),

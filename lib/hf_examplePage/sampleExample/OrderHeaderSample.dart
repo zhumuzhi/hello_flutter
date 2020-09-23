@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/Support/utils/screen_utils.dart';
 
 class OrderHeaderPage extends StatelessWidget {
   @override
@@ -7,7 +8,6 @@ class OrderHeaderPage extends StatelessWidget {
       appBar: AppBar(title: Text('订单详情')),
       body: ListView(children: [
         XFSOrderDetailsTitleItem(),
-        XFSOrderDetailsOrderInfoItem()
       ]),
     );
   }
@@ -17,15 +17,26 @@ class OrderHeaderPage extends StatelessWidget {
 class XFSOrderDetailsTitleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.orange,
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        margin: EdgeInsets.symmetric(vertical: 10),
-        child: Column(
-          children: [_orderTitle(), _countTime()],
-        ),
-      ),
+    return Stack(children: [
+      _backView(),
+      Positioned(top: 10, left: 10, right: 10, child: _infoView())
+    ]);
+  }
+
+  Widget _backView() {
+    return Column(children: [
+      Container(
+          height: 100,
+          width: KScreen.width(),
+          child: Image.asset('assets/images/xfs_order_InfoBackground.png',
+              fit: BoxFit.fill)),
+      Container(color: Colors.white38, height: 50)
+    ]);
+  }
+
+  Widget _infoView() {
+    return Column(
+      children: [_orderTitle(), _countTime(), XFSOrderDetailsOrderInfoItem()],
     );
   }
 
@@ -34,7 +45,7 @@ class XFSOrderDetailsTitleItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-              child: Image.asset('assets/image/xfs_order_waitPay.png'),
+              child: Image.asset('assets/images/xfs_order_waitPay.png'),
               width: 16,
               height: 16),
           Container(width: 5),
@@ -50,7 +61,7 @@ class XFSOrderDetailsTitleItem extends StatelessWidget {
 
   Widget _countTime() {
     return Container(
-      padding: EdgeInsets.only(top: 10),
+      padding: EdgeInsets.only(top: 10, bottom: 10),
       child: Row(children: [
         Text(
           '剩余时间：02小时08分38秒',
@@ -67,26 +78,22 @@ class XFSOrderDetailsOrderInfoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Container(
         padding: EdgeInsets.all(10),
         child: Column(
           children: [_contacts(), _address()],
         ),
         decoration: BoxDecoration(
+          color: Colors.white,
           border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(10.0),
-          // boxShadow: [
-          //   BoxShadow(
-          //     blurRadius: 2,
-          //     color:Colors.grey,
-          //     offset: Offset(2.0,2.0),
-          //   ),
-          // ]
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 2,
+              color:Colors.grey,
+              offset: Offset(2.0,2.0),
+            ),
+          ]
         ),
-      ),
     );
   }
 
@@ -112,7 +119,7 @@ class XFSOrderDetailsOrderInfoItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-              child: Image.asset('assets/image/xfs_order_location.png',
+              child: Image.asset('assets/images/xfs_order_location.png',
                   width: 10, height: 10)),
           Text(
             '北京海淀五环外001',

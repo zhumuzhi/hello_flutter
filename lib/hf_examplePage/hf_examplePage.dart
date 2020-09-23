@@ -43,7 +43,8 @@ class _ExamplePageState extends State<ExamplePage> {
     400,
     500,
     600,
-    700
+    700,
+    800
   ];
 
   @override

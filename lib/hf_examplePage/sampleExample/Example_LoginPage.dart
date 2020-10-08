@@ -39,10 +39,10 @@ class _loginPageState extends State<LoginPage> {
 
   // final _textEditingController = TextEditingController();
   var _mockCode = "A R 5 X";
-  var _isSelectedProtocol = false;
   var _isShowPWD = false;
   String _alphabet = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
-  BuildContext _context;
+  // var _isSelectedProtocol = false;
+  // BuildContext _context;
 
   /// Init
 
@@ -76,9 +76,9 @@ class _loginPageState extends State<LoginPage> {
   }
 
   /// Event
-  void _goBack() {
-
-  }
+  // void _goBack() {
+  //
+  // }
 
   void _onClickButton(loginPageActionType type) {
 

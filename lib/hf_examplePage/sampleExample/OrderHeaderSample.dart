@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/Support/utils/screen_utils.dart';
-import 'dart:math';
 import 'dart:async';
 
 class OrderHeaderPage extends StatefulWidget {

@@ -75,7 +75,7 @@ class NamedRoute extends StatefulWidget {
 }
 
 class _NamedRouteState extends State<NamedRoute> {
-  String _msg = '';
+  String _param = '';
 
   @override
   Widget build(BuildContext context) {
@@ -83,20 +83,21 @@ class _NamedRouteState extends State<NamedRoute> {
       body: Center(
         child: Column(children: <Widget>[
           RaisedButton(
-              child: Text('命名路由'),
-              color: randomColor(),
-              onPressed: () => Navigator.pushNamed(context, 'secondPage')),
+            child: Text('命名路由'),
+            color: randomColor(),
+            onPressed: () {
+              Navigator.pushNamed(context, 'secondPage');
+            },
+          ),
           RaisedButton(
-              child: Text('命名路由(参数&回调)'),
-              color: randomColor(),
-              onPressed: () =>
-                  Navigator.pushNamed(context, 'thirdPage', arguments: 'Hey')
-                      .then((value) {
-                    setState(() {
-                      _msg = value;
-                    });
-                  })),
-          Text('Message from Second screen: $_msg'),
+            child: Text('命名路由(参数&回调)'),
+            color: randomColor(),
+            onPressed: () {
+              Navigator.pushNamed(context, 'thirdPage',
+                  arguments: 'OrderId@3456');
+            },
+          ),
+          Text('Message from Second screen: $_param'),
           RaisedButton(
             child: Text('命名路由异常处理'),
             onPressed: () => Navigator.pushNamed(context, 'UnknownPage'),
@@ -109,9 +110,20 @@ class _NamedRouteState extends State<NamedRoute> {
 
 /// ========== SecondPage ==========
 
-class SecondPage extends StatelessWidget {
+class SecondPage extends StatefulWidget {
+  @override
+  _SecondPageState createState() => _SecondPageState();
+}
+
+class _SecondPageState extends State<SecondPage> {
+  final String orderId;
+
+  _SecondPageState({Key key, this.orderId});
+
   @override
   Widget build(BuildContext context) {
+    print('页面的传值为：$orderId');
+
     return Scaffold(
       appBar: AppBar(
         title: Text('SecondPage'),
@@ -131,17 +143,22 @@ class SecondPage extends StatelessWidget {
 
 /// ========== ThirdPage ==========
 
-class ThirdPage extends StatelessWidget {
+class ThirdPage extends StatefulWidget {
+  @override
+  _ThirdPageState createState() => _ThirdPageState();
+}
+
+class _ThirdPageState extends State<ThirdPage> {
   @override
   Widget build(BuildContext context) {
-    String msg = ModalRoute.of(context).settings.arguments as String;
+    String param = ModalRoute.of(context).settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
         title: Text('Third Screen'),
       ),
       body: Column(
         children: <Widget>[
-          Text('Message from first screen: $msg'),
+          Text('Message from first screen: $param'),
           RaisedButton(
             child: Text('back'),
             onPressed: () => Navigator.pop(context, 'Hi'),
@@ -170,9 +187,3 @@ class UnknownPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-

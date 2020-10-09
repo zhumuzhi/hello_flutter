@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/Support/utils/screen_utils.dart';
 import 'dart:async';
+import 'package:dio/dio.dart';
+import 'package:hello_flutter/hf_examplePage/model/xfs_goods_model.dart';
 
 class OrderHeaderPage extends StatefulWidget {
   @override
@@ -19,31 +21,31 @@ class _OrderHeaderPageState extends State<OrderHeaderPage> {
     // String countStr = countMethod(1601200017000, 1600935348514);
     // print('倒计时计算为：$countStr');
 
-    const period = const Duration(seconds: 1);
-
-    Timer.periodic(period, (timer) {
-
-      String timeStr = countStrMethod(baseCount);
-
-      //到时回调
-      // print('count：$baseCount');
-      // print('timeStr：$timeStr');
-
-      titleStr = timeStr;
-
-      setState(() {
-        countDownLabel(titleStr);
-      });
-
-      baseCount--;
-      if (baseCount <= 0) {
-        //取消定时器，避免无限回调
-        timer.cancel();
-        timer = null;
-        print('倒计时结束，计时器销毁');
-      }
-
-    });
+    // const period = const Duration(seconds: 1);
+    //
+    // Timer.periodic(period, (timer) {
+    //
+    //   String timeStr = countStrMethod(baseCount);
+    //
+    //   //到时回调
+    //   // print('count：$baseCount');
+    //   // print('timeStr：$timeStr');
+    //
+    //   titleStr = timeStr;
+    //
+    //   setState(() {
+    //     countDownLabel(titleStr);
+    //   });
+    //
+    //   baseCount--;
+    //   if (baseCount <= 0) {
+    //     //取消定时器，避免无限回调
+    //     timer.cancel();
+    //     timer = null;
+    //     print('倒计时结束，计时器销毁');
+    //   }
+    //
+    // });
 
     return Scaffold(
       appBar: AppBar(title: Text('订单详情')),
@@ -70,14 +72,61 @@ class _OrderHeaderPageState extends State<OrderHeaderPage> {
     // baseCount = (1601200017000 - 1600935348514) / 1000;
     baseCount = (1601200059000 - 1601200017000) / 1000;
     print('初始化倒计时赋值:$baseCount');
+
+    var paramsMap = {
+      "order_id": "88118794254",
+      "login_account": "wxvcqi978436",
+      "account_type": "20",
+      "version_code": "79",
+      "channel": "appstore",
+      "member_id": "159",
+      "device_id": "13f7836fde35c3e21bb274b21f1aee6d",
+      "sign": "17dc5c95bbbae6f62ed917993dec867f",
+      "token": "24639c6b71141b1fdc80b679e226c9c3",
+      "timestamp": "1602207349000",
+      "network": "WIFI",
+      "os_version": "13.7",
+      "accountType": "20",
+      "device_platform": "ios",
+      "memberId": "159",
+      "device_brand": "苹果",
+      "loginAccount": "wxvcqi978436",
+    };
+
+    postHttp('https://t2.fsyuncai.com/order/orderstore/queryStoreOrderDetails', paramsMap);
+
+
     super.initState();
   }
 
-  
 
+  void postHttp(String url, Map params) async {
+
+    print('==Dio-Post请求方法执行==');
+
+    try {
+      Response response = await Dio().post(url, queryParameters: params);
+
+      Map objetMap = response as Map;
+      dynamic object = objetMap['orderInvoice'];
+      print('==objet==:$object');
+
+      print('Dio-Post请求的结果为：$response');
+
+      if(response != null){
+        // XFSOrderDetailsModel orderDetailsModel = XFSOrderDetailsModel.fromJson(response);
+        Map objetMap = response as Map;
+        dynamic object = objetMap['orderInvoice'];
+        print('==objet==:$object');
+      }
+
+    } catch (error) {
+      // print('Dio-Post请求的错误为：$error');
+    }
+
+  }
 
 }
-
 
 countStrMethod (double secondtime){
   double intDiff =  secondtime;

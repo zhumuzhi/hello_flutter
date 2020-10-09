@@ -93,27 +93,26 @@ class _OrderHeaderPageState extends State<OrderHeaderPage> {
       "loginAccount": "wxvcqi978436",
     };
 
-    postHttp('https://t2.fsyuncai.com/order/orderstore/queryStoreOrderDetails', paramsMap);
+    String url = 'https://t2.fsyuncai.com/order/orderstore/queryStoreOrderDetails';
 
+    print('==Dio-Post请求的url：$url');
+    print('==Dio-Post请求的参数为：$paramsMap');
+
+    postHttp(url, paramsMap);
 
     super.initState();
   }
 
 
   void postHttp(String url, Map params) async {
-
-    print('==Dio-Post请求方法执行==');
-
     try {
       Response response = await Dio().post(url, queryParameters: params);
+      // Map objetMap = response as Map;
+      // dynamic object = objetMap['orderInvoice'];
+      // print('==objet==:$object');
+      print('==Dio-Post请求的结果为：$response');
 
-      Map objetMap = response as Map;
-      dynamic object = objetMap['orderInvoice'];
-      print('==objet==:$object');
-
-      print('Dio-Post请求的结果为：$response');
-
-      if(response != null){
+      if(response != null) {
         // XFSOrderDetailsModel orderDetailsModel = XFSOrderDetailsModel.fromJson(response);
         Map objetMap = response as Map;
         dynamic object = objetMap['orderInvoice'];

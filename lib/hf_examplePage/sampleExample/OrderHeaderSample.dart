@@ -10,147 +10,41 @@ class OrderHeaderPage extends StatefulWidget {
 }
 
 class _OrderHeaderPageState extends State<OrderHeaderPage> {
+  Timer _countdownTimer;
+  int _day, _hour, _minute, _second;
 
   String titleStr;
-  var baseCount;
-
+  int baseCount;
 
   @override
   Widget build(BuildContext context) {
-
-    // String countStr = countMethod(1601200017000, 1600935348514);
-    // print('倒计时计算为：$countStr');
-
-    // const period = const Duration(seconds: 1);
-    //
-    // Timer.periodic(period, (timer) {
-    //
-    //   String timeStr = countStrMethod(baseCount);
-    //
-    //   //到时回调
-    //   // print('count：$baseCount');
-    //   // print('timeStr：$timeStr');
-    //
-    //   titleStr = timeStr;
-    //
-    //   setState(() {
-    //     countDownLabel(titleStr);
-    //   });
-    //
-    //   baseCount--;
-    //   if (baseCount <= 0) {
-    //     //取消定时器，避免无限回调
-    //     timer.cancel();
-    //     timer = null;
-    //     print('倒计时结束，计时器销毁');
-    //   }
-    //
-    // });
-
     return Scaffold(
       appBar: AppBar(title: Text('订单详情')),
-      body: ListView(children: [
-        XFSOrderDetailsTitleItem(),
-        countDownLabel(titleStr)
-      ]),
+      body: ListView(
+        children: [
+          XFSOrderDetailsTitleItem(),
+          countDownLabel(titleStr)
+        ],
+      ),
     );
-
   }
 
-
-  Widget countDownLabel (String showStr) {
+  Widget countDownLabel(String showStr) {
     return Container(
       color: Colors.green,
       height: 100,
-      child:Text('$showStr') ,
+      child: Text('$showStr'),
     );
   }
 
-
   @override
   void initState() {
-    // baseCount = (1601200017000 - 1600935348514) / 1000;
-    baseCount = (1601200059000 - 1601200017000) / 1000;
-    print('初始化倒计时赋值:$baseCount');
-
-    var paramsMap = {
-      "order_id": "88118794254",
-      "login_account": "wxvcqi978436",
-      "account_type": "20",
-      "version_code": "79",
-      "channel": "appstore",
-      "member_id": "159",
-      "device_id": "13f7836fde35c3e21bb274b21f1aee6d",
-      "sign": "17dc5c95bbbae6f62ed917993dec867f",
-      "token": "24639c6b71141b1fdc80b679e226c9c3",
-      "timestamp": "1602207349000",
-      "network": "WIFI",
-      "os_version": "13.7",
-      "accountType": "20",
-      "device_platform": "ios",
-      "memberId": "159",
-      "device_brand": "苹果",
-      "loginAccount": "wxvcqi978436",
-    };
-
-    String url = 'https://t2.fsyuncai.com/order/orderstore/queryStoreOrderDetails';
-
-    print('==Dio-Post请求的url：$url');
-    print('==Dio-Post请求的参数为：$paramsMap');
-
-    postHttp(url, paramsMap);
-
     super.initState();
-  }
-
-
-  void postHttp(String url, Map params) async {
-    try {
-      Response response = await Dio().post(url, queryParameters: params);
-      // Map objetMap = response as Map;
-      // dynamic object = objetMap['orderInvoice'];
-      // print('==objet==:$object');
-      print('==Dio-Post请求的结果为：$response');
-
-      if(response != null) {
-        // XFSOrderDetailsModel orderDetailsModel = XFSOrderDetailsModel.fromJson(response);
-        Map objetMap = response as Map;
-        dynamic object = objetMap['orderInvoice'];
-        print('==objet==:$object');
-      }
-
-    } catch (error) {
-      // print('Dio-Post请求的错误为：$error');
-    }
-
+    // baseCount = (1601200059000 - 1601200017000) / 1000;
+    // print('初始化倒计时赋值:$baseCount');
   }
 
 }
-
-countStrMethod (double secondtime){
-  double intDiff =  secondtime;
-  var day = 0, hour = 0, minute =0, second = 0;
-  String timeStr;
-  if (intDiff > 0){
-    day = (intDiff/ (60*60*24)).floor();
-    hour = ((intDiff / (60 * 60)) - (day * 24)).floor();
-    minute = ((intDiff / 60) - (day * 24 * 60) - (hour * 60)).floor();
-    second = ((intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60)).floor();
-  }
-  if (hour <= 9) hour = 0 + hour;
-  if (minute <= 9) minute = 0 + minute;
-  if (second <= 9) second = 0 + second;
-  if (day > 0) {
-    if (day < 10) {
-      timeStr = '0' + '$day' + '天' +  '$hour' + '小时' + '$minute' + '分' + '$second' + '秒';
-    }
-  }else {
-    timeStr = '$hour' + '小时' + '$minute' + '分' + '$second' + '秒';
-  }
-  // intDiff--;
-  return timeStr;
-}
-
 
 /// ============================================ 标题Item ============================================
 class XFSOrderDetailsTitleItem extends StatelessWidget {
@@ -174,8 +68,14 @@ class XFSOrderDetailsTitleItem extends StatelessWidget {
   }
 
   Widget _infoView() {
+
+    int countParam = (1601200059000 - 1601200017000) ~/1000;
     return Column(
-      children: [_orderTitle(), _countTime(), XFSOrderDetailsOrderInfoItem()],
+      children: [
+        _orderTitle(),
+        XFSOrderCountDownWidget(downTime: countParam,),
+        XFSOrderDetailsOrderInfoItem()
+      ],
     );
   }
 
@@ -210,31 +110,28 @@ class XFSOrderDetailsTitleItem extends StatelessWidget {
       ]),
     );
   }
-
 }
-
 
 /// ============================================ 订单信息Item ============================================
 class XFSOrderDetailsOrderInfoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: [_contacts(), _address()],
-        ),
-        decoration: BoxDecoration(
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: [_contacts(), _address()],
+      ),
+      decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [
             BoxShadow(
               blurRadius: 2,
-              color:Colors.grey,
-              offset: Offset(2.0,2.0),
+              color: Colors.grey,
+              offset: Offset(2.0, 2.0),
             ),
-          ]
-        ),
+          ]),
     );
   }
 
@@ -270,5 +167,83 @@ class XFSOrderDetailsOrderInfoItem extends StatelessWidget {
       ),
     );
   }
+}
 
+/// ====================== 倒计时控件 ======================
+
+class XFSOrderCountDownWidget extends StatefulWidget {
+  final int downTime;
+
+  const XFSOrderCountDownWidget({Key key, this.downTime}) : super(key: key);
+
+  @override
+  _XFSOrderCountDownWidgetState createState() =>
+      _XFSOrderCountDownWidgetState();
+}
+
+class _XFSOrderCountDownWidgetState extends State<XFSOrderCountDownWidget> {
+  Timer _countdownTimer;
+  int _day, _hour, _minute, _second;
+
+  @override
+  void initState() {
+    super.initState();
+
+    secondsToDayHourMinute(widget.downTime);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _timeFunc(widget.downTime);
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    if (_countdownTimer != null) {
+      _countdownTimer?.cancel();
+      _countdownTimer = null;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return buildView(context);
+  }
+
+  Widget buildView(BuildContext context) {
+    return Container(
+      child: Text(
+        '${timeString(_day)}天${timeString(_hour)}小时${timeString(_minute)}分${timeString(_second)}秒',
+        textAlign: TextAlign.start,
+      ),
+    );
+  }
+
+  void secondsToDayHourMinute(int seconds) {
+    _day = (seconds ~/ (3600 * 24));
+    _hour = (seconds ~/ 3600) % 24;
+    _minute = seconds % 3600 ~/ 60;
+    _second = seconds % 60;
+  }
+
+  void _timeFunc(int downTime) {
+    _countdownTimer = new Timer.periodic(new Duration(seconds: 1), (timer) {
+      setState(() {
+        if (downTime > 0) {
+          downTime--;
+          secondsToDayHourMinute(downTime);
+          setState(() {});
+        } else {
+          _countdownTimer.cancel();
+          _countdownTimer = null;
+        }
+      });
+    });
+  }
+
+  String timeString(int time) {
+    if (time < 10) {
+      return '${time.toString()}';
+    }
+    return '${time.toString()}';
+  }
 }

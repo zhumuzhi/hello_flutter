@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hello_flutter/Router/RouterPath.dart';
 
-// import 'package:hello_flutter/hf_home/layoutCase/buildingLayoutPage.dart';
+import 'package:hello_flutter/Router/routeConfigure.dart';
+
 import 'package:hello_flutter/hf_home/layoutCase/pavlovaLayoutPage.dart';
 import 'package:hello_flutter/hf_home/layoutCase/containerLayoutPage.dart';
 import 'package:hello_flutter/hf_home/layoutCase/gridLayoutPage.dart';
@@ -83,9 +83,7 @@ class ListItem extends StatelessWidget {
         title: new Text('$title'),
         onTap: () {
           if ('$title'.toString() == 'Oeschinen') {
-
-            Navigator.pushNamed(context, buildLayout_page);
-
+            Navigator.pushNamed(context, RouteConfigure.layoutPage);
             // Navigator.push(
             //   context,
             //   new MaterialPageRoute(
@@ -94,41 +92,27 @@ class ListItem extends StatelessWidget {
           }
 
           if ('$title'.toString() == 'Pavlova') {
-            Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) => new PavlovaLayoutPage()));
+            Navigator.pushNamed(context, RouteConfigure.pavlovaCasePage);
           }
 
           if ('$title'.toString() == 'containerCase') {
-            Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) => new ContainerLayoutPage()));
+            Navigator.pushNamed(context, RouteConfigure.containerPage);
           }
 
           if ('$title'.toString() == 'gridLayoutCase') {
-            Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) => new GridLayoutPage()));
+            Navigator.pushNamed(context, RouteConfigure.gridLayoutPage);
           }
 
           if ('$title'.toString() == 'listViewCase') {
-            Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) => new ListViewPage()));
+            Navigator.pushNamed(context, RouteConfigure.listViewPage);
           }
 
           if ('$title'.toString() == 'stackCase') {
-            Navigator.push(context,
-                new MaterialPageRoute(builder: (context) => new StackLayoutPage()));
+            Navigator.pushNamed(context, RouteConfigure.stackLayoutPage);
           }
 
           if ('$title'.toString() == 'cardLayoutCase') {
-            Navigator.push(context,
-                new MaterialPageRoute(builder: (context) => new CardLayoutPage()));
+            Navigator.pushNamed(context, RouteConfigure.cardLayoutPage);
           }
 
           if ('$title'.toString() == 'animatedListCase') {

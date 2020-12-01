@@ -4,6 +4,7 @@
 /// desc 路由管理页面
 
 import 'package:flutter/material.dart';
+
 import 'package:hello_flutter/hf_bottomNavigation/hf_bottomNavigationBar.dart';
 import 'package:hello_flutter/hf_home/layoutCase/buildingLayoutPage.dart';
 import 'package:hello_flutter/hf_home/layoutCase/cardLayoutPage.dart';
@@ -12,6 +13,7 @@ import 'package:hello_flutter/hf_home/layoutCase/gridLayoutPage.dart';
 import 'package:hello_flutter/hf_home/layoutCase/listViewLayoutPage.dart';
 import 'package:hello_flutter/hf_home/layoutCase/pavlovaLayoutPage.dart';
 import 'package:hello_flutter/hf_home/layoutCase/stackLayoutPage.dart';
+import 'package:hello_flutter/hf_examplePage/sampleExample/AnimatedListSample.dart';
 
 typedef RouteResultBuilder = RouteResult Function(Object);
 
@@ -41,6 +43,8 @@ class RouteConfigure {
   // StackLayout布局页面
   static String stackLayoutPage = "router_flag_stackLayout";
 
+  static String animatedListPage = 'router_flag_animatedListPage';
+
   ///routesMap
   static Map<String, RouteResultBuilder> routeMap = {
     tabBarPage: (arguments) => RouteResult(widget: TabsPage()),
@@ -51,6 +55,7 @@ class RouteConfigure {
     listViewPage: (arguments) => RouteResult(widget: ListViewPage()),
     pavlovaCasePage: (arguments) => RouteResult(widget: PavlovaLayoutPage()),
     stackLayoutPage: (arguments) => RouteResult(widget: StackLayoutPage()),
+    animatedListPage: (arguments) => RouteResult(widget: AnimatedListSample()),
   };
 
   // 统一路由处理：参数、回调

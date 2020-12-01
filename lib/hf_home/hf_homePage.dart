@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:hello_flutter/Router/routeConfigure.dart';
 
-import 'package:hello_flutter/hf_home/layoutCase/pavlovaLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/containerLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/gridLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/listViewLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/stackLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/cardLayoutPage.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/AnimatedListSample.dart';
 
 class HomePage extends StatefulWidget {

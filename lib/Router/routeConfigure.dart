@@ -13,7 +13,7 @@ import 'package:hello_flutter/HomePage/homeExample/gridLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/listViewLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/pavlovaLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/stackLayoutPage.dart';
-import 'package:hello_flutter/hf_examplePage/sampleExample/AnimatedListSample.dart';
+import 'package:hello_flutter/ExamplePage/sampleExample/AnimatedListSample.dart';
 
 typedef RouteResultBuilder = RouteResult Function(Object);
 

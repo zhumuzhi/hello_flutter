@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:hello_flutter/Router/routeConfigure.dart';
 
-import 'package:hello_flutter/hf_examplePage/sampleExample/AnimatedListSample.dart';
+import 'package:hello_flutter/ExamplePage/sampleExample/AnimatedListSample.dart';
 
 class HomePage extends StatefulWidget {
   @override

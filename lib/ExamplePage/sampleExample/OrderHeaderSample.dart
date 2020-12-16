@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hello_flutter/Support/utils/screen_utils.dart';
 import 'dart:async';
 import 'package:dio/dio.dart';
-import 'package:hello_flutter/hf_examplePage/model/xfs_goods_model.dart';
+import 'package:hello_flutter/ExamplePage/model/xfs_goods_model.dart';
 
 class OrderHeaderPage extends StatefulWidget {
   @override

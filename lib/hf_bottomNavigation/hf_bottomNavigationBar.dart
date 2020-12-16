@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:hello_flutter/HomePage/homePage.dart';
-import 'package:hello_flutter/hf_examplePage/hf_examplePage.dart';
+import 'package:hello_flutter/ExamplePage/examplePage.dart';
 import 'package:hello_flutter/WidgetPage/widgetPage.dart';
 
 class TabsPage extends StatefulWidget {

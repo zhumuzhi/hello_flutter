@@ -1,4 +1,4 @@
-import 'package:hello_flutter/hf_examplePage/model/xfs_goods_model.dart';
+import 'package:hello_flutter/ExamplePage/model/xfs_goods_model.dart';
 
 ///订单详情-数据模型
 class XFSOrderDetailsModel {

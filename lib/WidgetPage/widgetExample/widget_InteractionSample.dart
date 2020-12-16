@@ -129,7 +129,6 @@ class _DragWidgetState extends State<DragWidget> {
 class DoubleGestureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
         appBar: AppBar(
           title: Text("手势冲突"),

@@ -6,21 +6,32 @@
 import 'package:flutter/material.dart';
 
 import 'package:hello_flutter/BottomNavigation/bottomNavigationBar.dart';
-import 'package:hello_flutter/HomePage/homeExample//buildingLayoutPage.dart';
+
+import 'package:hello_flutter/HomePage/homeExample/buildingLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/cardLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/containerLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/gridLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/listViewLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/pavlovaLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/stackLayoutPage.dart';
-import 'package:hello_flutter/ExamplePage/sampleExample/AnimatedListSample.dart';
+
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_BaseWidgetList.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_MultiChild.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_SingleChild.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_ComboWidget.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_InteractionSample.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_DataTransferCase.dart';
+
 
 typedef RouteResultBuilder = RouteResult Function(Object);
 
 ///  RouteConfigure 类
 class RouteConfigure {
+
   // TabBarPage
   static String tabBarPage = 'router_flag_tabBarPage';
+
+  ///  ==== 示例 ====
 
   // Build布局页面
   static String layoutPage = "router_flag_buildLayout";
@@ -43,7 +54,28 @@ class RouteConfigure {
   // StackLayout布局页面
   static String stackLayoutPage = "router_flag_stackLayout";
 
-  static String animatedListPage = 'router_flag_animatedListPage';
+
+  /// ==== Widget ====
+
+  // 基础Widget
+  static String baseWidgetList = 'router_flag_baseWidgetList';
+
+  // MultiChild
+  static String multiChild = 'router_flag_multiChild';
+
+  // singleChild
+  static String singleChild = 'router_flag_singleChild';
+
+  // comboWidget
+  static String comboWidget = 'router_flag_comboWidget';
+
+  // interactionSample
+  static String interactionSample = 'router_flag_interactionSample';
+
+  // dataTransferCase
+  static String dataTransferCase = 'router_flag_dataTransferCase';
+
+
 
   ///routesMap
   static Map<String, RouteResultBuilder> routeMap = {
@@ -55,7 +87,12 @@ class RouteConfigure {
     listViewPage: (arguments) => RouteResult(widget: ListViewPage()),
     pavlovaCasePage: (arguments) => RouteResult(widget: PavlovaLayoutPage()),
     stackLayoutPage: (arguments) => RouteResult(widget: StackLayoutPage()),
-    animatedListPage: (arguments) => RouteResult(widget: AnimatedListSample()),
+    baseWidgetList: (arguments) => RouteResult(widget: BaseWidgetList()),
+    multiChild: (arguments) => RouteResult(widget: MultiChildCase()),
+    singleChild: (arguments) => RouteResult(widget: SingleChildCase()),
+    comboWidget: (arguments) => RouteResult(widget: ComboWidgetCase()),
+    interactionSample: (arguments) => RouteResult(widget: InteractionSample()),
+    dataTransferCase: (arguments) => RouteResult(widget: DataTransferCase()),
   };
 
   // 统一路由处理：参数、回调

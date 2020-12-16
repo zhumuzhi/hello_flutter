@@ -4,6 +4,7 @@ import 'package:hello_flutter/Router/routeConfigure.dart';
 
 import 'package:hello_flutter/ExamplePage/sampleExample/AnimatedListSample.dart';
 
+// 【首页】调整为【示例】页面
 class HomePage extends StatefulWidget {
   @override
   createState() => _MyHomePageState();
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('首页'),
+        title: Text('示例'),
       ),
       body: ListView.separated(
         padding: const EdgeInsets.all(8),

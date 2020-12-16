@@ -9,6 +9,7 @@ import 'package:hello_flutter/ExamplePage/sampleExample/InteractionSample.dart';
 import 'package:hello_flutter/ExamplePage/sampleExample/Example_LoginPage.dart';
 import 'package:hello_flutter/ExamplePage/sampleExample/Example_RouteSample.dart';
 import 'package:hello_flutter/ExamplePage/sampleExample/OrderHeaderSample.dart';
+import 'package:hello_flutter/OtherPage/QuickTestPage.dart';
 
 class ExamplePage extends StatefulWidget {
   @override
@@ -25,6 +26,7 @@ class Entry {
 /// 首页ListView
 class _ExamplePageState extends State<ExamplePage> {
   final List<String> entries = <String>[
+    'QuickTestPage',
     'AppBarBottomSample',
     'BaseAppBarSample',
     'ExpansionTileSample',
@@ -37,6 +39,7 @@ class _ExamplePageState extends State<ExamplePage> {
 
   ];
   final List<int> colorCodes = <int>[
+    50,
     100,
     200,
     300,
@@ -81,6 +84,14 @@ class ListItem extends StatelessWidget {
       child: new ListTile(
         title: new Text('$title'),
         onTap: () {
+
+          if ('$title'.toString() == 'QuickTestPage') {
+            Navigator.push(
+                context,
+                new MaterialPageRoute(
+                    builder: (context) => QuickTestPage()));
+          }
+
 
           if ('$title'.toString() == 'AppBarBottomSample') {
             Navigator.push(
@@ -137,9 +148,6 @@ class ListItem extends StatelessWidget {
                 new MaterialPageRoute(
                     builder: (context) => new OrderHeaderPage()));
           }
-
-
-
         },
       ),
     );

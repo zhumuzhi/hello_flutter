@@ -47,7 +47,6 @@ class Vector extends MatePoint {
 
   @override
   void printInfo() {
-    // TODO: implement printInfo
     print('$x,$y,$z'); // 覆写了printInfo实现
     super.printInfo();
   }

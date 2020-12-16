@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
-
 import 'package:hello_flutter/Support/define/define.dart';
-
-import 'package:hello_flutter/WidgetPage/widgetExample/widget_BaseWidgetList.dart';
-import 'package:hello_flutter/WidgetPage/widgetExample/widget_MultiChild.dart';
-import 'package:hello_flutter/WidgetPage/widgetExample/widget_SingleChild.dart';
-import 'widgetExample/widget_ComboWidget.dart';
-import 'widgetExample/widget_InteractionSample.dart';
-import 'widgetExample/widget_DataTransferCase.dart';
-
+import 'package:hello_flutter/Router/routeConfigure.dart';
 
 class WidgetList extends StatelessWidget {
+
   final List<String> titleList = <String>[
-    'BaseWidgetList',
+    'baseWidgetList',
     'singleChild',
     'multiChild',
     'comboWidget',
-    'interaction',
-    'dataTransfer',
+    'interactionSample',
+    'dataTransferCase',
     'OtherView'
   ];
 
@@ -27,61 +20,70 @@ class WidgetList extends StatelessWidget {
       appBar: AppBar(title: Text('Widgets')),
       body: ListView.separated(
         padding: const EdgeInsets.all(8),
-        itemCount: titleList.length,
+        itemCount: 1,
         itemBuilder: (BuildContext context, int index) {
-          return _ListItem(title: titleList[index]);
+          return _normalExpansionTile(context);
         },
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
+        separatorBuilder: (BuildContext context, int index) => Divider(),
       ),
-    ); /**/
+    );
   }
-}
 
-class _ListItem extends StatelessWidget {
-  final String title;
+  Widget _normalExpansionTile(BuildContext context) {
+    List<Widget> widgetsList = [];
+    for (var value in titleList) {
+      print(value);
+      if (value == null) {
+        break;
+      }
+      widgetsList.add(_listTile(context, value));
+    }
+    return Card(
+      child: ExpansionTile(
+        title: Text(
+          'Widget',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        leading: Icon(Icons.extension),
+        children: widgetsList,
+        initiallyExpanded: false,
+      ),
+    );
+  }
 
-  const _ListItem({Key key, this.title}) : super(key: key);
+  Widget _listTile(BuildContext context, String title) {
+    return ListTile(
+      title: Text(title, style: TextStyle(fontSize: 14)),
+      trailing: Icon(Icons.arrow_right_rounded),
+      // subtitle: Text('ListTile.description'),
+      onTap: () {
+        if ('$title'.toString() == 'baseWidgetList') {
+          Navigator.pushNamed(context, RouteConfigure.baseWidgetList);
+        }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: randomColor(),
-      child: ListTile(
-          title: Text('$title'),
-          onTap: () {
-            print('点击了 $title Item');
+        if ('$title'.toString() == 'singleChild') {
+          Navigator.pushNamed(context, RouteConfigure.singleChild);
+        }
 
-            if ('$title'.toString() == 'BaseWidgetList') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => BaseWidgetList()));
-            }
+        if ('$title'.toString() == 'multiChild') {
+          Navigator.pushNamed(context, RouteConfigure.multiChild);
+        }
 
-            if ('$title'.toString() == 'singleChild') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => SingleChildCase()));
-            }
+        if ('$title'.toString() == 'comboWidget') {
+          Navigator.pushNamed(context, RouteConfigure.comboWidget);
+        }
 
-            if ('$title'.toString() == 'multiChild') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MultiChildCase()));
-            }
+        if ('$title'.toString() == 'interactionSample') {
+          Navigator.pushNamed(context, RouteConfigure.interactionSample);
+        }
 
-            if ('$title'.toString() == 'comboWidget') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ComboWidgetCase()));
-            }
-
-            if ('$title'.toString() == 'interaction') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => InteractionSample()));
-            }
-
-            if ('$title'.toString() == 'dataTransfer') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DataTransferCase()));
-            }
-
-          }),
+        if ('$title'.toString() == 'dataTransferCase') {
+          Navigator.pushNamed(context, RouteConfigure.dataTransferCase);
+        }
+      },
     );
   }
 }

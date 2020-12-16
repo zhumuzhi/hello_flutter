@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:hello_flutter/Support/define/define.dart';
 
-import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_BaseWidgetList.dart';
-import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_MultiChild.dart';
-import 'package:hello_flutter/hf_widget/hf_widgetExample/widget_SingleChild.dart';
-import 'hf_widgetExample/widget_ComboWidget.dart';
-import 'hf_widgetExample/widget_InteractionSample.dart';
-import 'hf_widgetExample/widget_DataTransferCase.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_BaseWidgetList.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_MultiChild.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_SingleChild.dart';
+import 'widgetExample/widget_ComboWidget.dart';
+import 'widgetExample/widget_InteractionSample.dart';
+import 'widgetExample/widget_DataTransferCase.dart';
 
 
 class WidgetList extends StatelessWidget {

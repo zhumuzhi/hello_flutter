@@ -6,13 +6,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:hello_flutter/hf_bottomNavigation/hf_bottomNavigationBar.dart';
-import 'package:hello_flutter/hf_home/layoutCase/buildingLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/cardLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/containerLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/gridLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/listViewLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/pavlovaLayoutPage.dart';
-import 'package:hello_flutter/hf_home/layoutCase/stackLayoutPage.dart';
+import 'package:hello_flutter/HomePage/homeExample//buildingLayoutPage.dart';
+import 'package:hello_flutter/HomePage/homeExample/cardLayoutPage.dart';
+import 'package:hello_flutter/HomePage/homeExample/containerLayoutPage.dart';
+import 'package:hello_flutter/HomePage/homeExample/gridLayoutPage.dart';
+import 'package:hello_flutter/HomePage/homeExample/listViewLayoutPage.dart';
+import 'package:hello_flutter/HomePage/homeExample/pavlovaLayoutPage.dart';
+import 'package:hello_flutter/HomePage/homeExample/stackLayoutPage.dart';
 import 'package:hello_flutter/hf_examplePage/sampleExample/AnimatedListSample.dart';
 
 typedef RouteResultBuilder = RouteResult Function(Object);

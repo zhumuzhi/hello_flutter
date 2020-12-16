@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:hello_flutter/hf_bottomNavigation/hf_bottomNavigationBar.dart';
+import 'package:hello_flutter/BottomNavigation/bottomNavigationBar.dart';
 import 'package:hello_flutter/HomePage/homeExample//buildingLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/cardLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/containerLayoutPage.dart';

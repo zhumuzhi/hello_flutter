@@ -1,89 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:hello_flutter/Support/define/define.dart';
 import 'package:hello_flutter/Router/routeConfigure.dart';
+import 'package:hello_flutter/WidgetPage/Model/widgetGroup.dart';
+import 'package:hello_flutter/WidgetPage/Model/widgetItem.dart';
 
-class WidgetList extends StatelessWidget {
+class WidgetList extends StatefulWidget {
+  @override
+  _WidgetListState createState() => _WidgetListState();
+}
 
-  final List<String> titleList = <String>[
-    'baseWidgetList',
-    'singleChild',
-    'multiChild',
-    'comboWidget',
-    'interactionSample',
-    'dataTransferCase',
-    'OtherView'
-  ];
-
+class _WidgetListState extends State<WidgetList> {
   @override
   Widget build(BuildContext context) {
+    // Widget数据
+    final widgetData = <Widget>[];
+    for (WidgetGroup group in kWidgetPageData) {
+      widgetData.add(_groupTile(group));
+    }
     return Scaffold(
       appBar: AppBar(title: Text('Widgets')),
-      body: ListView.separated(
-        padding: const EdgeInsets.all(8),
-        itemCount: 1,
-        itemBuilder: (BuildContext context, int index) {
-          return _normalExpansionTile(context);
+      body: IndexedStack (
+        children: [
+          ListView(children: widgetData),
+        ],
+      )
+    );
+  }
+
+  Widget _itemTitle(WidgetItem widgetItem) {
+    final textStyle = Theme.of(context)
+        .textTheme
+        .bodyText2
+        .copyWith(fontWeight: FontWeight.bold);
+
+    String subTitle = widgetItem.description;
+
+    return Card(
+      child: ListTile(
+        trailing: Icon(Icons.arrow_right),
+        title: Text(
+          widgetItem.itemName,
+          style: textStyle,
+        ),
+        subtitle: subTitle.length > 0
+            ? Text(widgetItem.description, style: textStyle)
+            : null,
+        onTap: () {
+          Navigator.of(context).pushNamed(widgetItem.routeName);
         },
-        separatorBuilder: (BuildContext context, int index) => Divider(),
       ),
     );
   }
 
-  Widget _normalExpansionTile(BuildContext context) {
-    List<Widget> widgetsList = [];
-    for (var value in titleList) {
-      print(value);
-      if (value == null) {
-        break;
-      }
-      widgetsList.add(_listTile(context, value));
-    }
+  Widget _groupTile(WidgetGroup widgetGroup) {
     return Card(
       child: ExpansionTile(
+        leading: widgetGroup.icon,
         title: Text(
-          'Widget',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
+          widgetGroup.groupName,
+          style: Theme.of(context).textTheme.headline6,
         ),
-        leading: Icon(Icons.extension),
-        children: widgetsList,
-        initiallyExpanded: false,
+        children: widgetGroup.items.map(_itemTitle).toList(),
       ),
-    );
-  }
-
-  Widget _listTile(BuildContext context, String title) {
-    return ListTile(
-      title: Text(title, style: TextStyle(fontSize: 14)),
-      trailing: Icon(Icons.arrow_right_rounded),
-      // subtitle: Text('ListTile.description'),
-      onTap: () {
-        if ('$title'.toString() == 'baseWidgetList') {
-          Navigator.pushNamed(context, RouteConfigure.baseWidgetList);
-        }
-
-        if ('$title'.toString() == 'singleChild') {
-          Navigator.pushNamed(context, RouteConfigure.singleChild);
-        }
-
-        if ('$title'.toString() == 'multiChild') {
-          Navigator.pushNamed(context, RouteConfigure.multiChild);
-        }
-
-        if ('$title'.toString() == 'comboWidget') {
-          Navigator.pushNamed(context, RouteConfigure.comboWidget);
-        }
-
-        if ('$title'.toString() == 'interactionSample') {
-          Navigator.pushNamed(context, RouteConfigure.interactionSample);
-        }
-
-        if ('$title'.toString() == 'dataTransferCase') {
-          Navigator.pushNamed(context, RouteConfigure.dataTransferCase);
-        }
-      },
     );
   }
 }

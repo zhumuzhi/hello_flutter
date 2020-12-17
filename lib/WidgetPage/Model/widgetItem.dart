@@ -7,13 +7,13 @@
 class WidgetItem {
 
   // Item 名称
-  final String title;
+  final String itemName;
   // Item 描述
   final String description;
   // Item 跳转路由名称
   final String routeName;
 
-  const WidgetItem(this.title, this.description, this.routeName);
+  const WidgetItem({this.itemName, this.description, this.routeName});
 
 }
  

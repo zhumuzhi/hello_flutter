@@ -22,7 +22,6 @@ class WidgetGroup {
 }
 
 final kWidgetPageData = <WidgetGroup>[
-
   WidgetGroup(
     groupName: 'Widgets',
     icon: Icon(Icons.extension),
@@ -56,6 +55,27 @@ final kWidgetPageData = <WidgetGroup>[
         itemName: 'dataTransferCase',
         description: '',
         routeName: RouteConfigure.dataTransferCase,
+      ),
+    ],
+  ),
+  WidgetGroup(
+    groupName: 'ListView',
+    icon: Icon(Icons.format_list_bulleted),
+    items: <WidgetItem>[
+      WidgetItem(
+        itemName: 'ListView',
+        description: '',
+        routeName: RouteConfigure.listViewBase,
+      ),
+      WidgetItem(
+        itemName: 'ListView.separated',
+        description: '',
+        routeName: RouteConfigure.listViewBase,
+      ),
+      WidgetItem(
+        itemName: 'ListView.builder',
+        description: '',
+        routeName: RouteConfigure.listViewBase,
       ),
     ],
   ),

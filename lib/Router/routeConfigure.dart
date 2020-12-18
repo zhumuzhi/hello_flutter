@@ -22,6 +22,7 @@ import 'package:hello_flutter/WidgetPage/widgetExample/widget_ComboWidget.dart';
 import 'package:hello_flutter/WidgetPage/widgetExample/widget_InteractionSample.dart';
 import 'package:hello_flutter/WidgetPage/widgetExample/widget_DataTransferCase.dart';
 
+import 'package:hello_flutter/WidgetPage/widgetExample/listView_normal.dart';
 
 typedef RouteResultBuilder = RouteResult Function(Object);
 
@@ -32,49 +33,39 @@ class RouteConfigure {
   static String tabBarPage = 'router_flag_tabBarPage';
 
   ///  ==== 示例 ====
-
   // Build布局页面
   static String layoutPage = "router_flag_buildLayout";
-
   // Card布局页面
   static String cardLayoutPage = "router_flag_cardLayout";
-
   // Container布局页面
   static String containerPage = "router_flag_container";
-
   // GridLayout布局页面
   static String gridLayoutPage = "router_flag_gridLayout";
-
   // ListView布局页面
   static String listViewPage = "router_flag_listView";
-
   // pavlovaCase页面
   static String pavlovaCasePage = "router_flag_pavlovaCase";
-
   // StackLayout布局页面
   static String stackLayoutPage = "router_flag_stackLayout";
 
 
   /// ==== Widget ====
-
   // 基础Widget
   static String baseWidgetList = 'router_flag_baseWidgetList';
-
   // MultiChild
   static String multiChild = 'router_flag_multiChild';
-
   // singleChild
   static String singleChild = 'router_flag_singleChild';
-
   // comboWidget
   static String comboWidget = 'router_flag_comboWidget';
-
   // interactionSample
   static String interactionSample = 'router_flag_interactionSample';
-
   // dataTransferCase
   static String dataTransferCase = 'router_flag_dataTransferCase';
 
+  /// ==== ListView ====
+  // ListView 基本使用
+  static String listViewBase = 'listViewBase';
 
 
   ///routesMap
@@ -93,6 +84,7 @@ class RouteConfigure {
     comboWidget: (arguments) => RouteResult(widget: ComboWidgetCase()),
     interactionSample: (arguments) => RouteResult(widget: InteractionSample()),
     dataTransferCase: (arguments) => RouteResult(widget: DataTransferCase()),
+    listViewBase:(arguments) => RouteResult(widget: ListViewWidget()),
   };
 
   // 统一路由处理：参数、回调

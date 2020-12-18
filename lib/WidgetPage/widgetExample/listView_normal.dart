@@ -7,26 +7,20 @@ import 'package:flutter/material.dart';
 
 class ListViewWidget extends StatelessWidget {
 
-  List listViewData = <Widget>[];
-
   @override
   Widget build(BuildContext context) {
-    listViewData = [
-      SizedBox(height: 20),
-      _normalWidget(),
-      _listTileItem(),
-      _expansionTileItem()
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: Text('ListView'),
       ),
-      body: Container(
-        child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: 5),
-          children: listViewData,
-        ),
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        children: [
+          SizedBox(height: 20),
+          _normalWidget(),
+          _listTileItem(),
+          _expansionTileItem()
+        ],
       ),
     );
   }
@@ -79,7 +73,7 @@ class ListViewWidget extends StatelessWidget {
         leading: Icon(Icons.alternate_email),
         title: Text(
           'ExpansionTile-Widget',
-          style: TextStyle(fontWeight: FontWeight.w500),
+          style: TextStyle(fontWeight: FontWeight.w800),
         ),
         children: [
           Card(

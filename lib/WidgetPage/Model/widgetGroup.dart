@@ -70,12 +70,12 @@ final kWidgetPageData = <WidgetGroup>[
       WidgetItem(
         itemName: 'ListView.separated',
         description: '',
-        routeName: RouteConfigure.listViewBase,
+        routeName: RouteConfigure.listViewSeparated,
       ),
       WidgetItem(
         itemName: 'ListView.builder',
         description: '',
-        routeName: RouteConfigure.listViewBase,
+        routeName: RouteConfigure.listViewBuilder,
       ),
     ],
   ),

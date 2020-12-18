@@ -14,6 +14,9 @@ import 'package:hello_flutter/HomePage/homeExample/gridLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/listViewLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/pavlovaLayoutPage.dart';
 import 'package:hello_flutter/HomePage/homeExample/stackLayoutPage.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/gridView_builder.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/gridView_extent.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/gridView_normal.dart';
 /// widgetExample
 import 'package:hello_flutter/WidgetPage/widgetExample/widget_BaseWidgetList.dart';
 import 'package:hello_flutter/WidgetPage/widgetExample/widget_MultiChild.dart';
@@ -72,6 +75,13 @@ class RouteConfigure {
   static String listViewBuilder = 'router_flag_listView_builder';
   // ListView Separated
   static String listViewSeparated = 'router_flag_listView_separated';
+  // GridView
+  static String gridViewWidget = 'router_flag_gridView';
+  // GridView builder
+  static String gridViewBuilder = 'router_flag_gridView_builder';
+  // GridView extent
+  static String gridViewExtent = 'router_flag_listView_extent';
+
 
   ///routesMap
   static Map<String, RouteResultBuilder> routeMap = {
@@ -89,10 +99,14 @@ class RouteConfigure {
     comboWidget: (arguments) => RouteResult(widget: ComboWidgetCase()),
     interactionSample: (arguments) => RouteResult(widget: InteractionSample()),
     dataTransferCase: (arguments) => RouteResult(widget: DataTransferCase()),
+    // Widget-ListView
     listViewBase:(arguments) => RouteResult(widget: ListViewWidget()),
     listViewBuilder:(arguments) => RouteResult(widget: ListViewBuilderClass()),
     listViewSeparated:(arguments) => RouteResult(widget: ListViewSeparatedClass()),
-
+    // Widget-GridView
+    gridViewWidget:(arguments) => RouteResult(widget: GridViewClass()),
+    gridViewBuilder:(arguments) => RouteResult(widget: GridViewBuilderClass()),
+    gridViewExtent:(arguments) => RouteResult(widget: GridViewExtentClass()),
   };
 
   // 统一路由处理：参数、回调

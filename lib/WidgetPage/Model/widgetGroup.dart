@@ -77,6 +77,21 @@ final kWidgetPageData = <WidgetGroup>[
         description: '',
         routeName: RouteConfigure.listViewBuilder,
       ),
+      WidgetItem(
+        itemName: 'GridView',
+        description: '',
+        routeName: RouteConfigure.gridViewWidget,
+      ),
+      WidgetItem(
+        itemName: 'GridView.builder',
+        description: '',
+        routeName: RouteConfigure.gridViewBuilder,
+      ),
+      WidgetItem(
+        itemName: 'GridView.extent',
+        description: '',
+        routeName: RouteConfigure.gridViewExtent,
+      ),
     ],
   ),
 ];

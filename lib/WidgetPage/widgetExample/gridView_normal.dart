@@ -13,6 +13,7 @@ class GridViewClass extends StatelessWidget {
         title: Text('GridView'),
       ),
       body: GridView(
+        scrollDirection: Axis.vertical,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,     // 主轴一行数量   【int】
           crossAxisSpacing: 0.0, // 交叉轴每行间距 【double】

@@ -12,15 +12,18 @@ class GridViewExtentClass extends StatelessWidget {
       appBar: AppBar(
         title: Text('GridView-Extent'),
       ),
-      body: Container(),
+      body: GridView.extent(
+        maxCrossAxisExtent: 200,
+        childAspectRatio: 2.0, // 宽高比为1:1    主行/交叉行
+        children: [
+          Card(child: Icon(Icons.ac_unit)),
+          Card(child: Icon(Icons.airport_shuttle)),
+          Card(child: Icon(Icons.all_inclusive)),
+          Card(child: Icon(Icons.beach_access)),
+          Card(child: Icon(Icons.cake)),
+          Card(child: Icon(Icons.free_breakfast)),
+        ],
+      ),
     );
   }
 }
-
-
-
-
-
-
-
-      

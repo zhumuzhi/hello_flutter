@@ -21,7 +21,6 @@ class ListViewWidget extends StatelessWidget {
           _normalWidget(),
           _listTileItem(),
           _expansionTileItem(),
-          // CodeWidget(code: 'Widget build(BuildContext context) {}',),
         ],
       ),
     );

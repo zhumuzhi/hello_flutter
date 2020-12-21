@@ -39,7 +39,8 @@ class CodeWidget extends StatelessWidget {
           child: _codeWidget,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-              color: style.backgroundColor ?? Color(0xffF6F8FA),
+              // color: style.backgroundColor ?? Color(0xffF6F8FA),
+              color: Color(0xffF6F8FA),
               borderRadius: BorderRadius.all(Radius.circular(5.0))),
         ),
       );

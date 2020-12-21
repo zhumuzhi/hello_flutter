@@ -64,7 +64,7 @@ final kWidgetPageData = <WidgetGroup>[
     items: <WidgetItem>[
       WidgetItem(
         itemName: 'ListView',
-        description: '',
+        description: '适用于子widget较少/页面固定情况',
         routeName: RouteConfigure.listViewBase,
       ),
       WidgetItem(
@@ -79,18 +79,18 @@ final kWidgetPageData = <WidgetGroup>[
       ),
       WidgetItem(
         itemName: 'GridView',
-        description: '',
+        description: '适用于子widget较少/页面固定情况',
         routeName: RouteConfigure.gridViewWidget,
+      ),
+      WidgetItem(
+        itemName: 'GridView.extent',
+        description: '适用于子widget较少/页面固定情况，与GridView类似，可快速指定子widget宽度',
+        routeName: RouteConfigure.gridViewExtent,
       ),
       WidgetItem(
         itemName: 'GridView.builder',
         description: '',
         routeName: RouteConfigure.gridViewBuilder,
-      ),
-      WidgetItem(
-        itemName: 'GridView.extent',
-        description: '',
-        routeName: RouteConfigure.gridViewExtent,
       ),
     ],
   ),

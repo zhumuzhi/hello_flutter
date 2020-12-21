@@ -3,7 +3,6 @@ import 'package:hello_flutter/Support/define/define.dart';
 import 'package:hello_flutter/WidgetPage/Model/widgetGroup.dart';
 import 'package:hello_flutter/WidgetPage/Model/widgetItem.dart';
 
-
 class WidgetList extends StatefulWidget {
   @override
   _WidgetListState createState() => _WidgetListState();
@@ -42,7 +41,8 @@ class _WidgetListState extends State<WidgetList> {
           style: textStyle,
         ),
         subtitle: subTitle.length > 0
-            ? Text(widgetItem.description, style: textStyle)
+            ? Text(widgetItem.description,
+                style: TextStyle(fontSize: 12, color: Colors.grey))
             : null,
         onTap: () {
           Navigator.of(context).pushNamed(widgetItem.routeName);
@@ -63,4 +63,5 @@ class _WidgetListState extends State<WidgetList> {
       ),
     );
   }
+
 }

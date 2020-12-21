@@ -64,32 +64,32 @@ final kWidgetPageData = <WidgetGroup>[
     items: <WidgetItem>[
       WidgetItem(
         itemName: 'ListView',
-        description: '适用于子widget较少/页面固定情况',
+        description: '适用于Cell较少/页面固定情况',
         routeName: RouteConfigure.listViewBase,
       ),
       WidgetItem(
-        itemName: 'ListView.separated',
-        description: '',
-        routeName: RouteConfigure.listViewSeparated,
-      ),
-      WidgetItem(
         itemName: 'ListView.builder',
-        description: '',
+        description: '适用于Cell较多(无限)情况，显示时才创建，基于Sliver的懒加载模型',
         routeName: RouteConfigure.listViewBuilder,
       ),
       WidgetItem(
+        itemName: 'ListView.separated',
+        description: '适用于Cell较多(无限)情况，比builder多了一个separatorBuilder参数（分割组件生成器）',
+        routeName: RouteConfigure.listViewSeparated,
+      ),
+      WidgetItem(
         itemName: 'GridView',
-        description: '适用于子widget较少/页面固定情况',
+        description: '适用于Item较少/页面固定情况',
         routeName: RouteConfigure.gridViewWidget,
       ),
       WidgetItem(
         itemName: 'GridView.extent',
-        description: '适用于子widget较少/页面固定情况，与GridView类似，可快速指定子widget宽度',
+        description: '适用于Item较少/页面固定情况，与GridView类似，可快速指定子widget宽度',
         routeName: RouteConfigure.gridViewExtent,
       ),
       WidgetItem(
         itemName: 'GridView.builder',
-        description: '',
+        description: '适用于Item数量较多，且样式重复情况。动态创建子widget',
         routeName: RouteConfigure.gridViewBuilder,
       ),
     ],

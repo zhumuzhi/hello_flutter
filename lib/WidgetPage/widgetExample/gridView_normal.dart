@@ -14,12 +14,12 @@ class GridViewClass extends StatelessWidget {
       ),
       body: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
-          childAspectRatio: 1.0, //宽高比为1:2
-          crossAxisSpacing: 0,
-          mainAxisSpacing: 0,
+          crossAxisCount: 4,     // 主轴一行数量   【int】
+          crossAxisSpacing: 0.0, // 交叉轴每行间距 【double】
+          mainAxisSpacing: 0.0,  // 主轴每行间距   【double】
+          childAspectRatio: 1.0, // 宽高比为1:1    主行/交叉行
         ),
-        children: [
+        children: [              // 子组件列表
           Card(child: Icon(Icons.ac_unit)),
           Card(child: Icon(Icons.airport_shuttle)),
           Card(child: Icon(Icons.all_inclusive)),

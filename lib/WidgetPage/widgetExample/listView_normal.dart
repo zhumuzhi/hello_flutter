@@ -4,6 +4,7 @@
 /// desc 普通ListView
 
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/CodeWidget/code_widget.dart';
 
 class ListViewWidget extends StatelessWidget {
 
@@ -19,11 +20,14 @@ class ListViewWidget extends StatelessWidget {
           SizedBox(height: 20),
           _normalWidget(),
           _listTileItem(),
-          _expansionTileItem()
+          _expansionTileItem(),
+          // CodeWidget(code: 'Widget build(BuildContext context) {}',),
         ],
       ),
     );
   }
+
+
 
   // 颜色 转 String 方法
   String colorString(Color color) =>
@@ -62,6 +66,9 @@ class ListViewWidget extends StatelessWidget {
         trailing: Icon(
           Icons.arrow_right,
         ),
+        onTap: (){
+          print('_listTileItem点击');
+        },
       ),
     );
   }

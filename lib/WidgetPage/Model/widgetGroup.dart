@@ -4,6 +4,7 @@
 /// desc Widget组模型
 
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/OtherPage/grammarCase.dart';
 import 'package:hello_flutter/WidgetPage/Model/widgetItem.dart';
 import 'package:hello_flutter/Router/routeConfigure.dart';
 
@@ -74,7 +75,7 @@ final kWidgetPageData = <WidgetGroup>[
       ),
       WidgetItem(
         itemName: 'ListView.separated',
-        description: '适用于Cell较多(无限)情况，比builder多了一个separatorBuilder参数（分割组件生成器）',
+        description: '适用于Cell较多(无限)情况，比builder多了一个分割组件生成器(separatorBuilder)参数',
         routeName: RouteConfigure.listViewSeparated,
       ),
       WidgetItem(
@@ -95,3 +96,4 @@ final kWidgetPageData = <WidgetGroup>[
     ],
   ),
 ];
+

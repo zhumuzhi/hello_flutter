@@ -8,11 +8,32 @@ import 'package:flutter/material.dart';
 class ListViewBuilderClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final numItems = 20;
     return Scaffold(
       appBar: AppBar(
         title: Text('ListViewBuilder'),
       ),
-      body: Container(),
+      body: ListView.builder(
+          padding: EdgeInsets.all(16),
+          itemCount: numItems * 2,
+          itemBuilder: (BuildContext context, int index) {
+            if(index.isOdd) return Divider();
+            final i = index ~/2 + 1;
+            return _buildRow(i);
+          }),
+    );
+  }
+
+  Widget _buildRow(int index) {
+    return ListTile(
+      leading: CircleAvatar(
+        child: Text('$index'),
+      ),
+      title: Text(
+        '$index',
+        style: TextStyle(fontSize: 18.0),
+      ),
+      trailing: Icon(Icons.dashboard),
     );
   }
 }

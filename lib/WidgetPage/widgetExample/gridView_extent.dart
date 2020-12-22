@@ -10,7 +10,7 @@ class GridViewExtentClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GridView-Extent'),
+        title: Text('GridView.extent'),
       ),
       body: GridView.extent(
         maxCrossAxisExtent: 200,

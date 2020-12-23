@@ -4,6 +4,7 @@
 /// desc 快速开始
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class QuickTestPage extends StatefulWidget {
   @override

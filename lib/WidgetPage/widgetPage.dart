@@ -45,7 +45,7 @@ class _WidgetListState extends State<WidgetList> {
                 style: TextStyle(fontSize: 12, color: Colors.grey))
             : null,
         onTap: () {
-          Navigator.of(context).pushNamed(widgetItem.routeName);
+          Navigator.pushNamed(context, widgetItem.routeName);
         },
       ),
     );

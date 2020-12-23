@@ -8,18 +8,19 @@ import 'package:flutter/material.dart';
 class ListViewBuilderClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final numItems = 20;
+    // final numItems = 20;
     return Scaffold(
       appBar: AppBar(
         title: Text('ListViewBuilder'),
       ),
       body: ListView.builder(
           padding: EdgeInsets.all(16),
-          itemCount: numItems * 2,
+          itemCount: 20,
+          // physics: AlwaysScrollableScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
-            if(index.isOdd) return Divider();
-            final i = index ~/2 + 1;
-            return _buildRow(i);
+            // if(index.isOdd) return Divider();
+            // final i = index ~/2 + 1;
+            return _buildRow(index);
           }),
     );
   }

@@ -15,7 +15,7 @@ class ListViewSeparatedClass extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('ListView.Separated'),
+        title: Text('ListView.separated'),
       ),
       body: ListView.separated(
         itemBuilder: (BuildContext context, int index) {

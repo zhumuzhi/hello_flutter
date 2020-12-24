@@ -93,6 +93,11 @@ final kWidgetPageData = <WidgetGroup>[
         description: '适用于Item数量较多，且样式重复情况。动态创建子widget',
         routeName: RouteConfigure.gridViewBuilder,
       ),
+      WidgetItem(
+        itemName: 'ListViewOne',
+        description: '',
+        routeName: RouteConfigure.listViewOne,
+      ),
     ],
   ),
 ];

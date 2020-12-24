@@ -9,13 +9,16 @@ class WidgetList extends StatefulWidget {
 }
 
 class _WidgetListState extends State<WidgetList> {
+
   @override
   Widget build(BuildContext context) {
+
     // Widget数据
     final widgetData = <Widget>[];
     for (WidgetGroup group in kWidgetPageData) {
       widgetData.add(_groupWidget(group));
     }
+
     return Scaffold(
         appBar: AppBar(title: Text('Widgets')),
         body: IndexedStack(
@@ -25,6 +28,7 @@ class _WidgetListState extends State<WidgetList> {
         ));
   }
 
+  // Item控件
   Widget _itemWidget(WidgetItem widgetItem) {
     final textStyle = Theme.of(context)
         .textTheme
@@ -41,9 +45,7 @@ class _WidgetListState extends State<WidgetList> {
           style: textStyle,
         ),
         subtitle: subTitle.length > 0
-            ? Text(widgetItem.description,
-                style: TextStyle(fontSize: 12, color: Colors.grey))
-            : null,
+            ? Text(subTitle, style: TextStyle(fontSize: 12, color: Colors.grey)) : null,
         onTap: () {
           Navigator.pushNamed(context, widgetItem.routeName);
         },
@@ -51,6 +53,7 @@ class _WidgetListState extends State<WidgetList> {
     );
   }
 
+  // 组控件
   Widget _groupWidget(WidgetGroup widgetGroup) {
     return Card(
       child: ExpansionTile(

@@ -42,6 +42,7 @@ class ListViewWidget extends StatelessWidget {
   }
 }
 
+
 class ParallelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -59,14 +60,14 @@ class ParallelWidget extends StatelessWidget {
         // 设置悬浮头图背景
         expandedHeight: 280, // 头图控件高度
       ),
-      SliverList(
-        //SliverList 作为列表控件
-        delegate: SliverChildBuilderDelegate(
-          (context, index) => ListTile(title: Text('Item #$index')),
-          // 列表项创建方法
-          childCount: 100, // 列表元素个数
-        ),
-      ),
+      // SliverList(
+      //   //SliverList 作为列表控件
+      //   delegate: SliverChildBuilderDelegate(
+      //     (context, index) => ListTile(title: Text('Item #$index')),
+      //     // 列表项创建方法
+      //     childCount: 100, // 列表元素个数
+      //   ),
+      // ),
     ]);
   }
 }
@@ -78,32 +79,35 @@ class ScrollNotificationWidget extends StatelessWidget {
       title: 'Scroll Notification Demo',
       home: Scaffold(
         appBar: AppBar(title: Text('ScrollController Demo')),
-        body: NotificationListener<ScrollNotification>(
-          // 添加 NotificationListener 作为父容器
-          onNotification: (scrollNotification) {
-            // 注册通知回调
-            if (scrollNotification is ScrollStartNotification) {
-              // 滚动开始
-              print('Scroll Start');
-            } else if (scrollNotification is ScrollUpdateNotification) {
-              // 滚动位置更新
-              print('Scroll Update');
-            } else if (scrollNotification is ScrollEndNotification) {
-              // 滚动结束
-              print('Scroll End');
-            }
-            return true;
-          },
-          child: ListView.builder(
+        body:
+        // NotificationListener<ScrollNotification>(
+        //   // 添加 NotificationListener 作为父容器
+        //   onNotification: (scrollNotification) {
+        //     // 注册通知回调
+        //     if (scrollNotification is ScrollStartNotification) {
+        //       // 滚动开始
+        //       print('Scroll Start');
+        //     } else if (scrollNotification is ScrollUpdateNotification) {
+        //       // 滚动位置更新
+        //       print('Scroll Update');
+        //     } else if (scrollNotification is ScrollEndNotification) {
+        //       // 滚动结束
+        //       print('Scroll End');
+        //     }
+        //     return true;
+        //   },
+        //   child:
+          ListView.builder(
             itemCount: 30, // 列表元素个数
             itemBuilder: (context, index) =>
                 ListTile(title: Text("Index : $index")), // 列表项创建方法
-          ),
+          // ),
         ),
       ),
     );
   }
 }
+
 
 class ScrollControllerWidget extends StatefulWidget {
   @override

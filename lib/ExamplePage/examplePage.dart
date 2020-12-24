@@ -10,6 +10,9 @@ import 'package:hello_flutter/ExamplePage/sampleExample/Example_LoginPage.dart';
 import 'package:hello_flutter/ExamplePage/sampleExample/Example_RouteSample.dart';
 import 'package:hello_flutter/ExamplePage/sampleExample/OrderHeaderSample.dart';
 import 'package:hello_flutter/OtherPage/QuickTestPage.dart';
+import 'package:hello_flutter/Router/routeConfigure.dart';
+
+
 
 class ExamplePage extends StatefulWidget {
   @override
@@ -143,10 +146,13 @@ class ListItem extends StatelessWidget {
           }
 
           if ('$title'.toString() == 'OrderPage') {
-            Navigator.push(
-                context,
-                new MaterialPageRoute(
-                    builder: (context) => new OrderHeaderPage()));
+            // Navigator.push(
+            //     context,
+            //     new MaterialPageRoute(
+            //         builder: (context) => new OrderHeaderPage()));
+
+            Navigator.pushNamed(context, RouteConfigure.listViewOne);
+
           }
         },
       ),

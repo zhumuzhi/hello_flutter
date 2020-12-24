@@ -7,31 +7,30 @@ import 'package:flutter/material.dart';
 import 'package:hello_flutter/CodeWidget/code_widget.dart';
 
 class ListViewWidget extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('ListView'),
       ),
-      body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 5),
-        children: [
-          SizedBox(height: 20),
-          _normalWidget(),
-          _listTileItem(),
-          _expansionTileItem(),
-        ],
+      body: Scrollbar(
+        child: ListView(
+          physics: ClampingScrollPhysics(),
+          padding: EdgeInsets.symmetric(horizontal: 5),
+          children: [
+            SizedBox(height: 20),
+            _normalWidget(),
+            _listTileItem(),
+            _expansionTileItem(),
+          ],
+        ),
       ),
     );
   }
 
-
-
   // 颜色 转 String 方法
   String colorString(Color color) =>
       "#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}";
-
 
   // Container 自定Widget，不一定为
   Widget _normalWidget() {
@@ -65,7 +64,7 @@ class ListViewWidget extends StatelessWidget {
         trailing: Icon(
           Icons.arrow_right,
         ),
-        onTap: (){
+        onTap: () {
           print('_listTileItem点击');
         },
       ),

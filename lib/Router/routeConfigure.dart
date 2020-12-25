@@ -23,6 +23,9 @@ import 'package:hello_flutter/WidgetPage/widgetExample/widget_ComboWidget.dart';
 import 'package:hello_flutter/WidgetPage/widgetExample/widget_InteractionSample.dart';
 import 'package:hello_flutter/WidgetPage/widgetExample/widget_DataTransferCase.dart';
 
+/// widget
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_AppBar.dart';
+
 /// widget_ListView
 import 'package:hello_flutter/WidgetPage/widgetExample/ListView/listView_normal.dart';
 import 'package:hello_flutter/WidgetPage/widgetExample/ListView/listView_builder.dart';
@@ -71,6 +74,10 @@ class RouteConfigure {
   // dataTransferCase
   static String dataTransferCase = 'router_flag_dataTransferCase';
 
+  // AppBar
+  static String appBarWidget = 'router_flag_appBarWidget';
+
+
   /// ==== ListView ====
   // ListView 基本使用
   static String listViewBase = 'router_flag_listView';
@@ -104,6 +111,10 @@ class RouteConfigure {
     comboWidget: (arguments) => RouteResult(widget: ComboWidgetCase()),
     interactionSample: (arguments) => RouteResult(widget: InteractionSample()),
     dataTransferCase: (arguments) => RouteResult(widget: DataTransferCase()),
+
+    // Widget
+    appBarWidget:(arguments) => RouteResult(widget: AppBarWidget()),
+
     // Widget-ListView
     listViewBase:(arguments) => RouteResult(widget: ListViewWidget()),
     listViewBuilder:(arguments) => RouteResult(widget: ListViewBuilderClass()),

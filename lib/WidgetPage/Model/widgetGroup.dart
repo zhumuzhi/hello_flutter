@@ -57,6 +57,11 @@ final kWidgetPageData = <WidgetGroup>[
         description: '',
         routeName: RouteConfigure.dataTransferCase,
       ),
+      WidgetItem(
+        itemName: 'AppBar',
+        description: '',
+        routeName: RouteConfigure.appBarWidget,
+      ),
     ],
   ),
   WidgetGroup(

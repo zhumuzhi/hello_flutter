@@ -28,6 +28,11 @@ final kWidgetPageData = <WidgetGroup>[
     icon: Icon(Icons.extension),
     items: <WidgetItem>[
       WidgetItem(
+        itemName: 'Text',
+        description: '用于显示文字的组件，核心样式有style属性控制',
+        routeName: RouteConfigure.textWidget,
+      ),
+      WidgetItem(
         itemName: 'baseWidgetList',
         description: '',
         routeName: RouteConfigure.baseWidgetList,

@@ -25,6 +25,7 @@ import 'package:hello_flutter/WidgetPage/widgetExample/widget_DataTransferCase.d
 
 /// widget
 import 'package:hello_flutter/WidgetPage/widgetExample/widget_AppBar.dart';
+import 'package:hello_flutter/WidgetPage/widgetExample/widget_Text.dart';
 
 /// widget_ListView
 import 'package:hello_flutter/WidgetPage/widgetExample/ListView/listView_normal.dart';
@@ -61,6 +62,9 @@ class RouteConfigure {
   static String stackLayoutPage = "router_flag_stackLayout";
 
   /// ==== Widget ====
+  // Text Widget
+  static String textWidget = 'router_flag_textWidget';
+
   // 基础Widget
   static String baseWidgetList = 'router_flag_baseWidgetList';
   // MultiChild
@@ -114,6 +118,9 @@ class RouteConfigure {
 
     // Widget
     appBarWidget:(arguments) => RouteResult(widget: AppBarWidget()),
+
+    textWidget:(arguments) => RouteResult(widget: TextWidgetClass()),
+
 
     // Widget-ListView
     listViewBase:(arguments) => RouteResult(widget: ListViewWidget()),

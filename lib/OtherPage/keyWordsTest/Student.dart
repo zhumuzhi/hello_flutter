@@ -3,7 +3,7 @@
 /// page Student
 /// desc       
 
-import 'Person.dart';
+import '../keyWordsTest/Person.dart';
 import 'SuperMan.dart';
 import 'DevilFruit.dart';
 

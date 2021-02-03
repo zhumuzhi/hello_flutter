@@ -4,13 +4,14 @@
 /// desc       
 
 class DevilFruit {
+  String fruitType;
 
   void rubber(){
     // print("橡胶果实...");
   }
 
   void shake (){
-    // print("震动果实...");
+    // print("震震果实...");
   }
 
 }

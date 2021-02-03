@@ -3,32 +3,49 @@
 /// page Student
 /// desc       
 
-import '../keyWordsTest/Person.dart';
-import 'SuperMan.dart';
-import 'DevilFruit.dart';
+class DevilFruit {
 
-class Student extends Person with Superman implements DevilFruit {
+  String fruitType;
 
-  bool get adult => this.age > 15;
-
-  void study(){
-    print("Student studying...");
+  void rubber(){
+    print("橡胶果实...");
   }
 
-  @override
-  void run() {
-    // TODO: implement run
-    super.run();
+  void shake (){
+    print("震震果实...");
   }
+
+}
+
+class Mutant {
+
+  String mutantClass;
+
+  void superSpeed () {
+    print('超级速度');
+  }
+
+  void superPower () {
+    print('超级力量');
+  }
+
+}
+
+
+class Person with Mutant implements DevilFruit {
+
+  String fruitType = "超人系";
 
   @override
   void rubber() {
     // TODO: implement rubber
+    print('橡胶果实-橡胶发动');
   }
 
   @override
   void shake() {
     // TODO: implement shake
+    print('震震果实-震动发动');
   }
 
 }
@@ -36,23 +53,16 @@ class Student extends Person with Superman implements DevilFruit {
 
 void main(){
 
-  Student student = new Student();
-  student.study();
+  Person person = new Person();
+  // 调用混入方法
+  person.superSpeed();
 
-  student.name = '张三';
-  student.age = 20;
+  // 调用接口方法
+  person.shake();
 
-  student.run();
-
-  student.fly();
-  student.laserEye();
-
-  student.home = "K.K.";
-
-  print(student.adult);
+  print('果实类型:'+ person.fruitType);
 
 }
- 
 
 
 

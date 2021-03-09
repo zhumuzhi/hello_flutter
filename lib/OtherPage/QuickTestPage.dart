@@ -1,7 +1,7 @@
 /// Created by ZhuMZ
 /// Created on 2020/12/16
 /// page QuickTestPage
-/// desc 快速开始
+/// desc 快速测试-页面
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
